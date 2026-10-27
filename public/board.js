@@ -228,8 +228,9 @@ function plainQuery(query) {
   const text = String(query || "").trim();
   const phrase = /^(CAUSE|PATTERNS|NEXT)\s+(\S+)$/.exec(text);
   if (!phrase) return text;
-  const verb = phrase[1] === "CAUSE" ? "Diagnose" : phrase[1] === "PATTERNS" ? "All-unit repair history" : "Latest incidents";
-  const target = phrase[2] === "thisweek" ? "This week" : phrase[2] === "lastweek" ? "Last week" : phrase[2];
+  const verb = phrase[1] === "CAUSE" ? "Diagnose" : phrase[1] === "PATTERNS" ? "All units" : "Latest";
+  const range = /^\d{4}-(\d{2})-(\d{2})\.\.\d{4}-(\d{2})-(\d{2})$/.exec(phrase[2]);
+  const target = phrase[2] === "thisweek" ? "This week" : phrase[2] === "lastweek" ? "Last week" : range ? `${range[1]}/${range[2]} to ${range[3]}/${range[4]}` : phrase[2];
   return `${verb} · ${target}`;
 }
 
@@ -691,7 +692,8 @@ function decisionCard(detail) {
   if (nextCheck && !nextIsRecords) next.push(nextCheck);
   for (const flag of facts.flags) {
     const action = /\bPropose\b[^.]*\./.exec(flag);
-    if (action) next.push(action[0]);
+    // the flag's own proposal is added only when the next check does not already say it
+    if (action && !next.some((n) => n.includes(action[0].trim()))) next.push(action[0]);
   }
   if (!next.length && hazards.total === 0) next.push("No action is proposed from these records.");
   if (hazards.total > 0) next.push("The hazard stays open until a person closes it.");
@@ -1062,7 +1064,7 @@ for (const el of [fromEl, toEl]) {
 // Fleet strip: the real date and time here, and which units need a look (same rules as the answers).
 function tickClock() {
   if (!nowEl) return;
-  nowEl.textContent = new Date().toLocaleString([], { weekday: "short", day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "2-digit" });
+  nowEl.textContent = new Date().toLocaleString([], { weekday: "short", day: "numeric", month: "short", year: "numeric", hour: "numeric", minute: "2-digit", second: "2-digit" });
 }
 async function loadFleet() {
   if (!fleetCountEl || typeof fetch !== "function") return;
@@ -1093,6 +1095,6 @@ async function loadFleet() {
 }
 if (nowEl) {
   tickClock();
-  setInterval(tickClock, 30000);
+  setInterval(tickClock, 1000);
   loadFleet();
 }

@@ -554,3 +554,11 @@ test("UI-02: a next action that mentions an incident is kept; only a pure run of
   assert.doesNotMatch(next, /ISS-008|ISS-009/, "a pure chain of records is history, not an action");
   assert.match(next, /No action is proposed from these records/);
 });
+
+test("the next action is listed once when the flag and the next check carry the same sentence", () => {
+  const r = (id: string, d: string) => rec(id, "SSA-001", "OOS", d, "ACT-17", "did_not_hold", "x");
+  const flag = "Escalation flag: SSA-001 has 3 fixes that did not hold (ISS-001, ISS-002, ISS-003). The rule is 3. Propose an escalation to a lead for human analysis.";
+  const answer = withFindings([r("ISS-001", "2026-09-02"), r("ISS-002", "2026-09-16"), r("ISS-003", "2026-09-30"), flag], { recommended_next_check: "Propose an escalation to a lead for human analysis. A human inspects the unit. Agents propose only." });
+  const next = sections(loadPage().decisionCard(detail(answer)))[3];
+  assert.equal((next.match(/Propose an escalation to a lead for human analysis/g) || []).length, 1, next);
+});

@@ -613,3 +613,67 @@ details.technical > summary { cursor: pointer; color: var(--muted); font-size: 0
 .clock { color: var(--gold); font-weight: 600; font-size: 1rem; letter-spacing: 0.02em; }
 .fleet-chip { cursor: pointer; }
 .fleet-chip:hover { border-color: rgba(228, 197, 106, 0.9); background: rgba(228, 197, 106, 0.18); }
+
+/* Interaction: highlight and lift appear only while hovered or keyboard-focused, and go away when the pointer leaves.
+   Nothing in the History list stays highlighted; the open run is exposed to assistive tech with aria-current and shown in the Result panel. */
+button, select, input, .pill, .fleet-chip, #history button {
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+}
+#history button { border: 1px solid transparent; border-radius: 10px; }
+#history button[aria-current="true"] { background: transparent; box-shadow: none; }
+.pill[aria-pressed="true"] { background: transparent; border-color: var(--gold); color: var(--gold); }
+.pills .range[data-active="true"] { background: transparent; border-color: var(--gold); }
+button:focus:not(:focus-visible), select:focus:not(:focus-visible), input:focus:not(:focus-visible) { outline: none; }
+button:hover:not(:disabled), button:focus-visible:not(:disabled), .pill:hover, .fleet-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.38);
+  border-color: rgba(228, 197, 106, 0.9);
+  background-color: rgba(228, 197, 106, 0.14);
+}
+/* History rows: borderless liquid glass. Frosted lift on hover; keyboard focus adds an inner ring so it stays visible without a border. */
+#history button:hover, #history button:focus-visible {
+  transform: translateY(-2px);
+  border-color: transparent;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.07));
+  -webkit-backdrop-filter: blur(14px) saturate(1.5);
+  backdrop-filter: blur(14px) saturate(1.5);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.38), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+#history button:focus-visible { box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.38), inset 0 0 0 2px rgba(255, 255, 255, 0.65); }
+/* Fluid hover (spring ease with a light overshoot) and a violet bloom, in the product's palette. */
+#history button { transition: transform 0.3s cubic-bezier(0.22, 1.25, 0.36, 1), background 0.26s ease, box-shadow 0.3s ease, backdrop-filter 0.26s ease; }
+#history button:hover, #history button:focus-visible { transform: translateY(-3px) scale(1.012); }
+#history button:hover { box-shadow: 0 16px 30px rgba(0, 0, 0, 0.36), 0 0 26px rgba(150, 130, 255, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.38), inset 0 -1px 0 rgba(255, 255, 255, 0.08); }
+#history button:focus-visible { box-shadow: 0 16px 30px rgba(0, 0, 0, 0.36), 0 0 26px rgba(150, 130, 255, 0.20), inset 0 1px 0 rgba(255, 255, 255, 0.38), inset 0 0 0 2px rgba(255, 255, 255, 0.65); }
+
+/* Who we are: the product name leads the page. */
+.top h1 { font-size: clamp(1.6rem, 2.3vw, 2rem); line-height: 1.08; letter-spacing: 0.01em; }
+.top .kicker { font-size: 0.8rem; letter-spacing: 0.14em; }
+
+/* The clock is live: seconds tick and a pulsing dot says it is tracking. */
+.clock { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+.clock::before { content: ""; width: 0.42rem; height: 0.42rem; border-radius: 50%; background: var(--ok); opacity: 0.85; animation: live-pulse 3.2s ease-in-out infinite; }
+@keyframes live-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(142, 224, 176, 0); opacity: 0.85; } 50% { box-shadow: 0 0 0 4px rgba(142, 224, 176, 0.16); opacity: 1; } }
+/* History rows read as a dashboard list: a borderless band that lifts on hover and fades out toward both ends, so it never touches the card edges. */
+.fleet { margin-bottom: 5px; }
+#history button { border: 0; border-radius: 0; margin: 0 -1rem; width: calc(100% + 2rem); padding: 0.62rem 1rem; }
+#history button:hover, #history button:focus-visible {
+  transform: translateY(-2px);
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42) 50%, transparent) top / 100% 1px no-repeat,
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18) 50%, transparent) bottom / 100% 1px no-repeat,
+    linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.18) 22%, rgba(255, 255, 255, 0.18) 78%, rgba(255, 255, 255, 0) 100%);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4);
+  backdrop-filter: blur(10px) saturate(1.4);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+  box-shadow: none;
+}
+#history button:focus-visible { background-color: rgba(255, 255, 255, 0.07); }
+@media (prefers-reduced-motion: reduce) {
+  button, select, input, .pill, .fleet-chip, #history button { transition: none; }
+  button:hover:not(:disabled), button:focus-visible:not(:disabled), .pill:hover, .fleet-chip:hover, #history button:hover, #history button:focus-visible { transform: none; }
+  .clock::before { animation: none; }
+  #history button:hover, #history button:focus-visible { transform: none; }
+}
