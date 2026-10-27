@@ -12,7 +12,7 @@ import vm from "node:vm";
 
 const source = fs.readFileSync(path.join(import.meta.dirname, "..", "public", "board.js"), "utf8");
 
-type Page = { decisionCard: (detail: unknown) => string; renderHistory: (runs: unknown[], selected: string) => void; startWorking: () => void; stopWorking: (note?: string) => void };
+type Page = { plainQuery: (query: string) => string; decisionCard: (detail: unknown) => string; renderHistory: (runs: unknown[], selected: string) => void; startWorking: () => void; stopWorking: (note?: string) => void };
 function loadPage(elements: Record<string, Record<string, unknown>> = {}): Page {
   const element: Record<string, unknown> = new Proxy(function () {}, {
     get: (_t, key) => (key === "classList" ? { add() {}, remove() {}, toggle() {} } : key === "dataset" ? {} : key === "style" ? {} : () => element),
@@ -42,7 +42,7 @@ function loadPage(elements: Record<string, Record<string, unknown>> = {}): Page 
   };
   sandbox.globalThis = sandbox;
   vm.createContext(sandbox);
-  vm.runInContext(`${source}\nglobalThis.__page = { decisionCard, renderHistory, startWorking, stopWorking };`, sandbox);
+  vm.runInContext(`${source}\nglobalThis.__page = { decisionCard, renderHistory, startWorking, stopWorking, plainQuery };`, sandbox);
   return sandbox.__page as Page;
 }
 
@@ -561,4 +561,16 @@ test("the next action is listed once when the flag and the next check carry the 
   const answer = withFindings([r("ISS-001", "2026-09-02"), r("ISS-002", "2026-09-16"), r("ISS-003", "2026-09-30"), flag], { recommended_next_check: "Propose an escalation to a lead for human analysis. A human inspects the unit. Agents propose only." });
   const next = sections(loadPage().decisionCard(detail(answer)))[3];
   assert.equal((next.match(/Propose an escalation to a lead for human analysis/g) || []).length, 1, next);
+});
+
+test("History labels keep the year of a custom range, so different years never read the same (auditor finding)", () => {
+  const label = (q: string) => loadPage().plainQuery(q);
+  assert.equal(label("PATTERNS 2025-10-01..2025-10-07"), "All units · 10/01/25 to 10/07/25");
+  assert.equal(label("PATTERNS 2026-10-01..2026-10-07"), "All units · 10/01/26 to 10/07/26");
+  assert.notEqual(label("PATTERNS 2025-10-01..2025-10-07"), label("PATTERNS 2026-10-01..2026-10-07"));
+  assert.equal(label("PATTERNS 2025-12-01..2026-01-15"), "All units · 12/01/25 to 01/15/26", "a cross-year range keeps both years");
+  assert.equal(label("PATTERNS thisweek"), "All units · This week");
+  assert.equal(label("PATTERNS lastweek"), "All units · Last week");
+  assert.equal(label("CAUSE SSA-001"), "Diagnose · SSA-001");
+  assert.equal(label("NEXT SSA-004"), "Latest · SSA-004");
 });

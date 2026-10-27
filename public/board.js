@@ -229,8 +229,8 @@ function plainQuery(query) {
   const phrase = /^(CAUSE|PATTERNS|NEXT)\s+(\S+)$/.exec(text);
   if (!phrase) return text;
   const verb = phrase[1] === "CAUSE" ? "Diagnose" : phrase[1] === "PATTERNS" ? "All units" : "Latest";
-  const range = /^\d{4}-(\d{2})-(\d{2})\.\.\d{4}-(\d{2})-(\d{2})$/.exec(phrase[2]);
-  const target = phrase[2] === "thisweek" ? "This week" : phrase[2] === "lastweek" ? "Last week" : range ? `${range[1]}/${range[2]} to ${range[3]}/${range[4]}` : phrase[2];
+  const range = /^(\d{4})-(\d{2})-(\d{2})\.\.(\d{4})-(\d{2})-(\d{2})$/.exec(phrase[2]);
+  const target = phrase[2] === "thisweek" ? "This week" : phrase[2] === "lastweek" ? "Last week" : range ? `${range[2]}/${range[3]}/${range[1].slice(2)} to ${range[5]}/${range[6]}/${range[4].slice(2)}` : phrase[2];
   return `${verb} · ${target}`;
 }
 
