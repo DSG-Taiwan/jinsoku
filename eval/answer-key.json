@@ -1,0 +1,2496 @@
+{
+  "generated_by": "eval/derive.ts",
+  "rules": {
+    "clock": "thisweek is opened_at from 2026-10-19 through 2026-10-21 inclusive. lastweek is opened_at from 2026-10-12 through 2026-10-18 inclusive.",
+    "open_hazard": "An open HAZARD is an issues.json row with kind HAZARD and closed_at null. A sequence row with kind HAZARD would also count as open. This dataset has none.",
+    "unresolved": "An issues.json row is unresolved when closed_at is null, or fix_outcome is did_not_hold, or kind is HAZARD. A sequence row is unresolved when fix_outcome is did_not_hold or kind is HAZARD.",
+    "repeating_kind": "A kind repeats when that kind string occurs at least twice on the asset in the chain used for the question.",
+    "next_check": "Merge issues.json with incident-sequences.json for the asset. Sort by opened_at descending, then issue_id descending. The next check is the newest unresolved event. If none are unresolved, it is the newest event whose kind repeats. If none repeat, it is the newest event.",
+    "cause_chain": "CAUSE facts use issues.json only. incident-sequences.json is a NEXT source and is not a CAUSE source.",
+    "repeat_cause": "A clear repeat is two or more did_not_hold rows on the asset that share a token. Tokens are lowercase pieces of length 4 or more, split on non-letters, excluding only, still, after, again, with, from, this, that, same, into, have, were, unit, and open.",
+    "reasons_distinct": "Reason strings are distinct when the lowercased trimmed reasons on the asset's issues.json rows are not all the same. Distinct reasons make 'same reason' and 'same cause' a wrong claim.",
+    "patterns": "A period's labeled failures are the issues.json rows opened in that window with fix_outcome did_not_hold. Open HAZARD rows stay in the pattern answer even when they opened outside the window. A held issue id named in the same sentence as did_not_hold is a contradiction."
+  },
+  "clock": {
+    "thisweek": {
+      "from": "2026-10-19",
+      "to": "2026-10-21"
+    },
+    "lastweek": {
+      "from": "2026-10-12",
+      "to": "2026-10-18"
+    }
+  },
+  "open_hazards": [
+    {
+      "issue_id": "ISS-006",
+      "asset_id": "SSA-002",
+      "kind": "HAZARD",
+      "opened_at": "2026-10-15",
+      "closed_at": null,
+      "reason": "high-limit trip, still open",
+      "actor_key": "ACT-23",
+      "fix_outcome": "did_not_hold",
+      "source": "issues",
+      "unresolved": true
+    },
+    {
+      "issue_id": "ISS-011",
+      "asset_id": "SSA-009",
+      "kind": "HAZARD",
+      "opened_at": "2026-10-18",
+      "closed_at": null,
+      "reason": "freeze-stat open, unit offline",
+      "actor_key": "ACT-17",
+      "fix_outcome": "did_not_hold",
+      "source": "issues",
+      "unresolved": true
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "SSA-001",
+      "did_not_hold_count": 5,
+      "repeat_tokens": [
+        "coil",
+        "filter",
+        "iced",
+        "packed"
+      ],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-001",
+          "asset_id": "SSA-001",
+          "kind": "OOS",
+          "opened_at": "2026-09-02",
+          "closed_at": "2026-09-03",
+          "reason": "intake filter packed with dust",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-002",
+          "asset_id": "SSA-001",
+          "kind": "OOS",
+          "opened_at": "2026-09-16",
+          "closed_at": "2026-09-17",
+          "reason": "same filter bypass, coil iced",
+          "actor_key": "ACT-11",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-003",
+          "asset_id": "SSA-001",
+          "kind": "OOS",
+          "opened_at": "2026-09-30",
+          "closed_at": "2026-10-01",
+          "reason": "coil iced after filter change",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-004",
+          "asset_id": "SSA-001",
+          "kind": "MICROFIX",
+          "opened_at": "2026-10-14",
+          "closed_at": "2026-10-14",
+          "reason": "filter swap only",
+          "actor_key": "ACT-11",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-005",
+          "asset_id": "SSA-001",
+          "kind": "OOS",
+          "opened_at": "2026-10-20",
+          "closed_at": "2026-10-20",
+          "reason": "reset only, filter still packed",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-207",
+          "asset_id": "SSA-001",
+          "kind": "OOS",
+          "opened_at": "2026-10-28",
+          "closed_at": null,
+          "reason": "overflow repeated after pan rinse",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "sequence",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "MICROFIX",
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-002",
+      "did_not_hold_count": 1,
+      "repeat_tokens": [],
+      "reasons_distinct": true,
+      "open_hazards": [
+        {
+          "issue_id": "ISS-006",
+          "asset_id": "SSA-002",
+          "kind": "HAZARD",
+          "opened_at": "2026-10-15",
+          "closed_at": null,
+          "reason": "high-limit trip, still open",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        }
+      ],
+      "issues": [
+        {
+          "issue_id": "ISS-006",
+          "asset_id": "SSA-002",
+          "kind": "HAZARD",
+          "opened_at": "2026-10-15",
+          "closed_at": null,
+          "reason": "high-limit trip, still open",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-007",
+          "asset_id": "SSA-002",
+          "kind": "OOS",
+          "opened_at": "2026-09-08",
+          "closed_at": "2026-09-09",
+          "reason": "ignition lockout",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-217",
+          "asset_id": "SSA-002",
+          "kind": "OOS",
+          "opened_at": "2026-10-28",
+          "closed_at": null,
+          "reason": "valve coil warm",
+          "actor_key": "ACT-11",
+          "fix_outcome": "did_not_hold",
+          "source": "sequence",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "MICROFIX",
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-003",
+      "did_not_hold_count": 2,
+      "repeat_tokens": [],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-012",
+          "asset_id": "SSA-003",
+          "kind": "OOS",
+          "opened_at": "2026-10-12",
+          "closed_at": "2026-10-13",
+          "reason": "damper stuck",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-020",
+          "asset_id": "SSA-003",
+          "kind": "MICROFIX",
+          "opened_at": "2026-09-04",
+          "closed_at": "2026-09-04",
+          "reason": "blower noise",
+          "actor_key": "ACT-11",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-028",
+          "asset_id": "SSA-003",
+          "kind": "OOS",
+          "opened_at": "2026-09-12",
+          "closed_at": "2026-09-12",
+          "reason": "sensor drift",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-036",
+          "asset_id": "SSA-003",
+          "kind": "OOS",
+          "opened_at": "2026-09-20",
+          "closed_at": "2026-09-20",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-044",
+          "asset_id": "SSA-003",
+          "kind": "OOS",
+          "opened_at": "2026-09-28",
+          "closed_at": "2026-09-28",
+          "reason": "blower noise",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-052",
+          "asset_id": "SSA-003",
+          "kind": "OOS",
+          "opened_at": "2026-10-06",
+          "closed_at": "2026-10-06",
+          "reason": "sensor drift",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-060",
+          "asset_id": "SSA-003",
+          "kind": "OOS",
+          "opened_at": "2026-10-14",
+          "closed_at": "2026-10-14",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-11",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-227",
+          "asset_id": "SSA-003",
+          "kind": "OOS",
+          "opened_at": "2026-10-28",
+          "closed_at": null,
+          "reason": "linkage pin worn",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "sequence",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "MICROFIX",
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-004",
+      "did_not_hold_count": 2,
+      "repeat_tokens": [
+        "belt",
+        "slip"
+      ],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-008",
+          "asset_id": "SSA-004",
+          "kind": "OOS",
+          "opened_at": "2026-09-08",
+          "closed_at": "2026-09-09",
+          "reason": "belt slip",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-009",
+          "asset_id": "SSA-004",
+          "kind": "OOS",
+          "opened_at": "2026-09-22",
+          "closed_at": "2026-09-23",
+          "reason": "belt slip again",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-010",
+          "asset_id": "SSA-004",
+          "kind": "MICROFIX",
+          "opened_at": "2026-10-06",
+          "closed_at": "2026-10-07",
+          "reason": "belt tension tweak",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-009",
+          "asset_id": "SSA-004",
+          "kind": "OOS",
+          "opened_at": "2026-09-22",
+          "closed_at": "2026-09-23",
+          "reason": "belt slip again",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-005",
+      "did_not_hold_count": 1,
+      "repeat_tokens": [],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-013",
+          "asset_id": "SSA-005",
+          "kind": "MICROFIX",
+          "opened_at": "2026-10-19",
+          "closed_at": "2026-10-19",
+          "reason": "sensor drift trim",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-021",
+          "asset_id": "SSA-005",
+          "kind": "OOS",
+          "opened_at": "2026-09-05",
+          "closed_at": "2026-09-05",
+          "reason": "damper lag",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-029",
+          "asset_id": "SSA-005",
+          "kind": "OOS",
+          "opened_at": "2026-09-13",
+          "closed_at": "2026-09-13",
+          "reason": "drain line slow",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-037",
+          "asset_id": "SSA-005",
+          "kind": "OOS",
+          "opened_at": "2026-09-21",
+          "closed_at": "2026-09-21",
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-045",
+          "asset_id": "SSA-005",
+          "kind": "OOS",
+          "opened_at": "2026-09-29",
+          "closed_at": "2026-09-29",
+          "reason": "damper lag",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-053",
+          "asset_id": "SSA-005",
+          "kind": "MICROFIX",
+          "opened_at": "2026-10-07",
+          "closed_at": "2026-10-07",
+          "reason": "drain line slow",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-061",
+          "asset_id": "SSA-005",
+          "kind": "OOS",
+          "opened_at": "2026-10-15",
+          "closed_at": "2026-10-15",
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-045",
+          "asset_id": "SSA-005",
+          "kind": "OOS",
+          "opened_at": "2026-09-29",
+          "closed_at": "2026-09-29",
+          "reason": "damper lag",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "MICROFIX",
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-006",
+      "did_not_hold_count": 1,
+      "repeat_tokens": [],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-014",
+          "asset_id": "SSA-006",
+          "kind": "OOS",
+          "opened_at": "2026-10-13",
+          "closed_at": "2026-10-14",
+          "reason": "condensate pan full",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-022",
+          "asset_id": "SSA-006",
+          "kind": "OOS",
+          "opened_at": "2026-09-06",
+          "closed_at": "2026-09-06",
+          "reason": "sensor drift",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-030",
+          "asset_id": "SSA-006",
+          "kind": "OOS",
+          "opened_at": "2026-09-14",
+          "closed_at": "2026-09-14",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-038",
+          "asset_id": "SSA-006",
+          "kind": "OOS",
+          "opened_at": "2026-09-22",
+          "closed_at": "2026-09-22",
+          "reason": "blower noise",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-046",
+          "asset_id": "SSA-006",
+          "kind": "OOS",
+          "opened_at": "2026-09-30",
+          "closed_at": "2026-09-30",
+          "reason": "sensor drift",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-054",
+          "asset_id": "SSA-006",
+          "kind": "OOS",
+          "opened_at": "2026-10-08",
+          "closed_at": "2026-10-08",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-062",
+          "asset_id": "SSA-006",
+          "kind": "OOS",
+          "opened_at": "2026-10-16",
+          "closed_at": "2026-10-16",
+          "reason": "blower noise",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-030",
+          "asset_id": "SSA-006",
+          "kind": "OOS",
+          "opened_at": "2026-09-14",
+          "closed_at": "2026-09-14",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-007",
+      "did_not_hold_count": 2,
+      "repeat_tokens": [],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-015",
+          "asset_id": "SSA-007",
+          "kind": "OOS",
+          "opened_at": "2026-10-21",
+          "closed_at": null,
+          "reason": "no airflow, belt check pending",
+          "actor_key": "ACT-11",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-023",
+          "asset_id": "SSA-007",
+          "kind": "OOS",
+          "opened_at": "2026-09-07",
+          "closed_at": "2026-09-07",
+          "reason": "drain line slow",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-031",
+          "asset_id": "SSA-007",
+          "kind": "MICROFIX",
+          "opened_at": "2026-09-15",
+          "closed_at": "2026-09-15",
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-039",
+          "asset_id": "SSA-007",
+          "kind": "OOS",
+          "opened_at": "2026-09-23",
+          "closed_at": "2026-09-23",
+          "reason": "damper lag",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-047",
+          "asset_id": "SSA-007",
+          "kind": "OOS",
+          "opened_at": "2026-10-01",
+          "closed_at": "2026-10-01",
+          "reason": "drain line slow",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-055",
+          "asset_id": "SSA-007",
+          "kind": "OOS",
+          "opened_at": "2026-10-09",
+          "closed_at": "2026-10-09",
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-31",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-063",
+          "asset_id": "SSA-007",
+          "kind": "OOS",
+          "opened_at": "2026-10-17",
+          "closed_at": "2026-10-17",
+          "reason": "damper lag",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-015",
+          "asset_id": "SSA-007",
+          "kind": "OOS",
+          "opened_at": "2026-10-21",
+          "closed_at": null,
+          "reason": "no airflow, belt check pending",
+          "actor_key": "ACT-11",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-008",
+      "did_not_hold_count": 1,
+      "repeat_tokens": [],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-017",
+          "asset_id": "SSA-008",
+          "kind": "OOS",
+          "opened_at": "2026-09-11",
+          "closed_at": "2026-09-11",
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-024",
+          "asset_id": "SSA-008",
+          "kind": "OOS",
+          "opened_at": "2026-09-08",
+          "closed_at": "2026-09-08",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-032",
+          "asset_id": "SSA-008",
+          "kind": "OOS",
+          "opened_at": "2026-09-16",
+          "closed_at": "2026-09-16",
+          "reason": "blower noise",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-040",
+          "asset_id": "SSA-008",
+          "kind": "OOS",
+          "opened_at": "2026-09-24",
+          "closed_at": "2026-09-24",
+          "reason": "sensor drift",
+          "actor_key": "ACT-11",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-048",
+          "asset_id": "SSA-008",
+          "kind": "OOS",
+          "opened_at": "2026-10-02",
+          "closed_at": "2026-10-02",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-056",
+          "asset_id": "SSA-008",
+          "kind": "OOS",
+          "opened_at": "2026-10-10",
+          "closed_at": "2026-10-10",
+          "reason": "blower noise",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-064",
+          "asset_id": "SSA-008",
+          "kind": "MICROFIX",
+          "opened_at": "2026-10-18",
+          "closed_at": "2026-10-18",
+          "reason": "sensor drift",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-040",
+          "asset_id": "SSA-008",
+          "kind": "OOS",
+          "opened_at": "2026-09-24",
+          "closed_at": "2026-09-24",
+          "reason": "sensor drift",
+          "actor_key": "ACT-11",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-009",
+      "did_not_hold_count": 1,
+      "repeat_tokens": [],
+      "reasons_distinct": false,
+      "open_hazards": [
+        {
+          "issue_id": "ISS-011",
+          "asset_id": "SSA-009",
+          "kind": "HAZARD",
+          "opened_at": "2026-10-18",
+          "closed_at": null,
+          "reason": "freeze-stat open, unit offline",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        }
+      ],
+      "issues": [
+        {
+          "issue_id": "ISS-011",
+          "asset_id": "SSA-009",
+          "kind": "HAZARD",
+          "opened_at": "2026-10-18",
+          "closed_at": null,
+          "reason": "freeze-stat open, unit offline",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-011",
+          "asset_id": "SSA-009",
+          "kind": "HAZARD",
+          "opened_at": "2026-10-18",
+          "closed_at": null,
+          "reason": "freeze-stat open, unit offline",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": []
+      }
+    },
+    {
+      "asset_id": "SSA-010",
+      "did_not_hold_count": 2,
+      "repeat_tokens": [],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-016",
+          "asset_id": "SSA-010",
+          "kind": "MICROFIX",
+          "opened_at": "2026-10-16",
+          "closed_at": "2026-10-16",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-025",
+          "asset_id": "SSA-010",
+          "kind": "OOS",
+          "opened_at": "2026-09-09",
+          "closed_at": "2026-09-09",
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-033",
+          "asset_id": "SSA-010",
+          "kind": "OOS",
+          "opened_at": "2026-09-17",
+          "closed_at": "2026-09-17",
+          "reason": "damper lag",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-041",
+          "asset_id": "SSA-010",
+          "kind": "OOS",
+          "opened_at": "2026-09-25",
+          "closed_at": "2026-09-25",
+          "reason": "drain line slow",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-049",
+          "asset_id": "SSA-010",
+          "kind": "OOS",
+          "opened_at": "2026-10-03",
+          "closed_at": "2026-10-03",
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-057",
+          "asset_id": "SSA-010",
+          "kind": "OOS",
+          "opened_at": "2026-10-11",
+          "closed_at": "2026-10-11",
+          "reason": "damper lag",
+          "actor_key": "ACT-17",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-065",
+          "asset_id": "SSA-010",
+          "kind": "OOS",
+          "opened_at": "2026-10-19",
+          "closed_at": "2026-10-19",
+          "reason": "drain line slow",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-065",
+          "asset_id": "SSA-010",
+          "kind": "OOS",
+          "opened_at": "2026-10-19",
+          "closed_at": "2026-10-19",
+          "reason": "drain line slow",
+          "actor_key": "ACT-17",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-011",
+      "did_not_hold_count": 1,
+      "repeat_tokens": [],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-018",
+          "asset_id": "SSA-011",
+          "kind": "OOS",
+          "opened_at": "2026-10-02",
+          "closed_at": "2026-10-03",
+          "reason": "drain line slow",
+          "actor_key": "ACT-11",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-026",
+          "asset_id": "SSA-011",
+          "kind": "OOS",
+          "opened_at": "2026-09-10",
+          "closed_at": "2026-09-10",
+          "reason": "blower noise",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-034",
+          "asset_id": "SSA-011",
+          "kind": "OOS",
+          "opened_at": "2026-09-18",
+          "closed_at": "2026-09-18",
+          "reason": "sensor drift",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-042",
+          "asset_id": "SSA-011",
+          "kind": "MICROFIX",
+          "opened_at": "2026-09-26",
+          "closed_at": "2026-09-26",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-050",
+          "asset_id": "SSA-011",
+          "kind": "OOS",
+          "opened_at": "2026-10-04",
+          "closed_at": "2026-10-04",
+          "reason": "blower noise",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-058",
+          "asset_id": "SSA-011",
+          "kind": "OOS",
+          "opened_at": "2026-10-12",
+          "closed_at": "2026-10-12",
+          "reason": "sensor drift",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-066",
+          "asset_id": "SSA-011",
+          "kind": "OOS",
+          "opened_at": "2026-10-20",
+          "closed_at": "2026-10-20",
+          "reason": "thermostat offset",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-050",
+          "asset_id": "SSA-011",
+          "kind": "OOS",
+          "opened_at": "2026-10-04",
+          "closed_at": "2026-10-04",
+          "reason": "blower noise",
+          "actor_key": "ACT-23",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "OOS"
+        ]
+      }
+    },
+    {
+      "asset_id": "SSA-012",
+      "did_not_hold_count": 1,
+      "repeat_tokens": [],
+      "reasons_distinct": true,
+      "open_hazards": [],
+      "issues": [
+        {
+          "issue_id": "ISS-019",
+          "asset_id": "SSA-012",
+          "kind": "MICROFIX",
+          "opened_at": "2026-10-09",
+          "closed_at": "2026-10-09",
+          "reason": "contactor buzz",
+          "actor_key": "ACT-23",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-027",
+          "asset_id": "SSA-012",
+          "kind": "OOS",
+          "opened_at": "2026-09-11",
+          "closed_at": "2026-09-11",
+          "reason": "damper lag",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-035",
+          "asset_id": "SSA-012",
+          "kind": "OOS",
+          "opened_at": "2026-09-19",
+          "closed_at": "2026-09-19",
+          "reason": "drain line slow",
+          "actor_key": "ACT-31",
+          "fix_outcome": "did_not_hold",
+          "source": "issues",
+          "unresolved": true
+        },
+        {
+          "issue_id": "ISS-043",
+          "asset_id": "SSA-012",
+          "kind": "OOS",
+          "opened_at": "2026-09-27",
+          "closed_at": "2026-09-27",
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-051",
+          "asset_id": "SSA-012",
+          "kind": "OOS",
+          "opened_at": "2026-10-05",
+          "closed_at": "2026-10-05",
+          "reason": "damper lag",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-059",
+          "asset_id": "SSA-012",
+          "kind": "OOS",
+          "opened_at": "2026-10-13",
+          "closed_at": "2026-10-13",
+          "reason": "drain line slow",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": false
+        },
+        {
+          "issue_id": "ISS-067",
+          "asset_id": "SSA-012",
+          "kind": "OOS",
+          "opened_at": "2026-10-21",
+          "closed_at": null,
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": true
+        }
+      ],
+      "next": {
+        "event": {
+          "issue_id": "ISS-067",
+          "asset_id": "SSA-012",
+          "kind": "OOS",
+          "opened_at": "2026-10-21",
+          "closed_at": null,
+          "reason": "fan wheel loose",
+          "actor_key": "ACT-31",
+          "fix_outcome": "held",
+          "source": "issues",
+          "unresolved": true
+        },
+        "because": "unresolved",
+        "repeating_kinds": [
+          "OOS"
+        ]
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "cause-ssa-004",
+      "query": "CAUSE SSA-004",
+      "role": "lead",
+      "phrase": "CAUSE",
+      "expect": "answer",
+      "asset": "SSA-004",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-004"
+          ]
+        },
+        {
+          "id": "iss-008",
+          "all": [
+            "ISS-008",
+            "belt slip"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "iss-009",
+          "all": [
+            "ISS-009",
+            "belt slip again"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "actor",
+          "all": [
+            "ACT-23"
+          ]
+        },
+        {
+          "id": "repeat-tokens",
+          "all": [
+            "belt",
+            "slip"
+          ]
+        }
+      ],
+      "partial_min": 3,
+      "forbid": [
+        {
+          "id": "same-reason",
+          "pattern": "\\bsame\\s+(reason|cause)\\b",
+          "scope": "text"
+        },
+        {
+          "id": "held-ISS-010",
+          "all": [
+            "ISS-010"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-008",
+        "ISS-009",
+        "ISS-010"
+      ],
+      "allow_actors": [
+        "ACT-23"
+      ],
+      "allow_assets": [
+        "SSA-004"
+      ],
+      "open_hazard_count": 0,
+      "contradict_held_ids": [
+        "ISS-010"
+      ]
+    },
+    {
+      "id": "cause-ssa-001",
+      "query": "CAUSE SSA-001",
+      "role": "lead",
+      "phrase": "CAUSE",
+      "expect": "answer",
+      "asset": "SSA-001",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-001"
+          ]
+        },
+        {
+          "id": "two-reasons",
+          "reasons_at_least": {
+            "n": 2,
+            "reasons": [
+              "intake filter packed with dust",
+              "same filter bypass, coil iced",
+              "coil iced after filter change",
+              "filter swap only",
+              "reset only, filter still packed"
+            ]
+          }
+        },
+        {
+          "id": "two-actors",
+          "actors_at_least": {
+            "n": 2,
+            "actors": [
+              "ACT-17",
+              "ACT-11",
+              "ACT-23"
+            ]
+          }
+        },
+        {
+          "id": "outcome",
+          "pattern": "did[_ ]not[_ ]hold"
+        }
+      ],
+      "partial_min": 2,
+      "forbid": [
+        {
+          "id": "same-reason",
+          "pattern": "\\bsame\\s+(reason|cause)\\b",
+          "scope": "text"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-001",
+        "ISS-002",
+        "ISS-003",
+        "ISS-004",
+        "ISS-005"
+      ],
+      "allow_actors": [
+        "ACT-17",
+        "ACT-11",
+        "ACT-23"
+      ],
+      "allow_assets": [
+        "SSA-001"
+      ],
+      "open_hazard_count": 0,
+      "contradict_held_ids": []
+    },
+    {
+      "id": "cause-ssa-009",
+      "query": "CAUSE SSA-009",
+      "role": "lead",
+      "phrase": "CAUSE",
+      "expect": "answer",
+      "asset": "SSA-009",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-009"
+          ]
+        },
+        {
+          "id": "issue",
+          "all": [
+            "ISS-011"
+          ]
+        },
+        {
+          "id": "kind",
+          "all": [
+            "HAZARD"
+          ]
+        },
+        {
+          "id": "open",
+          "pattern": "\\bopen\\b"
+        },
+        {
+          "id": "actor",
+          "all": [
+            "ACT-17"
+          ]
+        },
+        {
+          "id": "reason",
+          "all": [
+            "freeze-stat open, unit offline"
+          ]
+        }
+      ],
+      "partial_min": 3,
+      "forbid": [],
+      "allow_issue_ids": [
+        "ISS-011"
+      ],
+      "allow_actors": [
+        "ACT-17"
+      ],
+      "allow_assets": [
+        "SSA-009"
+      ],
+      "open_hazard_count": 1,
+      "contradict_held_ids": []
+    },
+    {
+      "id": "cause-ssa-002",
+      "query": "CAUSE SSA-002",
+      "role": "lead",
+      "phrase": "CAUSE",
+      "expect": "answer",
+      "asset": "SSA-002",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-002"
+          ]
+        },
+        {
+          "id": "iss-006",
+          "all": [
+            "ISS-006",
+            "SSA-002",
+            "ACT-23",
+            "high-limit trip, still open",
+            "HAZARD"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "partial_min": 1,
+      "forbid": [
+        {
+          "id": "same-reason",
+          "pattern": "\\bsame\\s+(reason|cause)\\b",
+          "scope": "text"
+        },
+        {
+          "id": "held-ISS-007",
+          "all": [
+            "ISS-007"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-006",
+        "ISS-007"
+      ],
+      "allow_actors": [
+        "ACT-23"
+      ],
+      "allow_assets": [
+        "SSA-002"
+      ],
+      "open_hazard_count": 1,
+      "contradict_held_ids": [
+        "ISS-007"
+      ]
+    },
+    {
+      "id": "patterns-thisweek",
+      "query": "PATTERNS thisweek",
+      "role": "lead",
+      "phrase": "PATTERNS",
+      "expect": "answer",
+      "period": "thisweek",
+      "require": [
+        {
+          "id": "ISS-005",
+          "all": [
+            "ISS-005",
+            "SSA-001",
+            "ACT-23",
+            "reset only, filter still packed"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "ISS-015",
+          "all": [
+            "ISS-015",
+            "SSA-007",
+            "ACT-11",
+            "no airflow, belt check pending"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "ISS-065",
+          "all": [
+            "ISS-065",
+            "SSA-010",
+            "ACT-17",
+            "drain line slow"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "open-hazards",
+          "all": [
+            "ISS-006",
+            "SSA-002",
+            "HAZARD",
+            "ISS-011",
+            "SSA-009",
+            "HAZARD"
+          ],
+          "pattern": "\\bopen\\b"
+        }
+      ],
+      "partial_min": 2,
+      "forbid": [
+        {
+          "id": "held-ISS-013",
+          "all": [
+            "ISS-013"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-066",
+          "all": [
+            "ISS-066"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-067",
+          "all": [
+            "ISS-067"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-001",
+        "ISS-002",
+        "ISS-003",
+        "ISS-004",
+        "ISS-005",
+        "ISS-006",
+        "ISS-007",
+        "ISS-008",
+        "ISS-009",
+        "ISS-010",
+        "ISS-011",
+        "ISS-012",
+        "ISS-013",
+        "ISS-014",
+        "ISS-015",
+        "ISS-016",
+        "ISS-017",
+        "ISS-018",
+        "ISS-019",
+        "ISS-020",
+        "ISS-021",
+        "ISS-022",
+        "ISS-023",
+        "ISS-024",
+        "ISS-025",
+        "ISS-026",
+        "ISS-027",
+        "ISS-028",
+        "ISS-029",
+        "ISS-030",
+        "ISS-031",
+        "ISS-032",
+        "ISS-033",
+        "ISS-034",
+        "ISS-035",
+        "ISS-036",
+        "ISS-037",
+        "ISS-038",
+        "ISS-039",
+        "ISS-040",
+        "ISS-041",
+        "ISS-042",
+        "ISS-043",
+        "ISS-044",
+        "ISS-045",
+        "ISS-046",
+        "ISS-047",
+        "ISS-048",
+        "ISS-049",
+        "ISS-050",
+        "ISS-051",
+        "ISS-052",
+        "ISS-053",
+        "ISS-054",
+        "ISS-055",
+        "ISS-056",
+        "ISS-057",
+        "ISS-058",
+        "ISS-059",
+        "ISS-060",
+        "ISS-061",
+        "ISS-062",
+        "ISS-063",
+        "ISS-064",
+        "ISS-065",
+        "ISS-066",
+        "ISS-067"
+      ],
+      "allow_actors": [
+        "ACT-11",
+        "ACT-17",
+        "ACT-23",
+        "ACT-31"
+      ],
+      "allow_assets": [
+        "SSA-001",
+        "SSA-002",
+        "SSA-003",
+        "SSA-004",
+        "SSA-005",
+        "SSA-006",
+        "SSA-007",
+        "SSA-008",
+        "SSA-009",
+        "SSA-010",
+        "SSA-011",
+        "SSA-012"
+      ],
+      "open_hazard_count": 2,
+      "contradict_held_ids": [
+        "ISS-013",
+        "ISS-066",
+        "ISS-067"
+      ]
+    },
+    {
+      "id": "patterns-lastweek",
+      "query": "PATTERNS lastweek",
+      "role": "lead",
+      "phrase": "PATTERNS",
+      "expect": "answer",
+      "period": "lastweek",
+      "require": [
+        {
+          "id": "ISS-004",
+          "all": [
+            "ISS-004",
+            "SSA-001",
+            "ACT-11",
+            "filter swap only"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "ISS-006",
+          "all": [
+            "ISS-006",
+            "SSA-002",
+            "ACT-23",
+            "high-limit trip, still open",
+            "HAZARD"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "ISS-011",
+          "all": [
+            "ISS-011",
+            "SSA-009",
+            "ACT-17",
+            "freeze-stat open, unit offline",
+            "HAZARD"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "ISS-060",
+          "all": [
+            "ISS-060",
+            "SSA-003",
+            "ACT-11",
+            "thermostat offset"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "partial_min": 2,
+      "forbid": [
+        {
+          "id": "held-ISS-012",
+          "all": [
+            "ISS-012"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-014",
+          "all": [
+            "ISS-014"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-016",
+          "all": [
+            "ISS-016"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-058",
+          "all": [
+            "ISS-058"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-059",
+          "all": [
+            "ISS-059"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-061",
+          "all": [
+            "ISS-061"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-062",
+          "all": [
+            "ISS-062"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-063",
+          "all": [
+            "ISS-063"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-064",
+          "all": [
+            "ISS-064"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-001",
+        "ISS-002",
+        "ISS-003",
+        "ISS-004",
+        "ISS-005",
+        "ISS-006",
+        "ISS-007",
+        "ISS-008",
+        "ISS-009",
+        "ISS-010",
+        "ISS-011",
+        "ISS-012",
+        "ISS-013",
+        "ISS-014",
+        "ISS-015",
+        "ISS-016",
+        "ISS-017",
+        "ISS-018",
+        "ISS-019",
+        "ISS-020",
+        "ISS-021",
+        "ISS-022",
+        "ISS-023",
+        "ISS-024",
+        "ISS-025",
+        "ISS-026",
+        "ISS-027",
+        "ISS-028",
+        "ISS-029",
+        "ISS-030",
+        "ISS-031",
+        "ISS-032",
+        "ISS-033",
+        "ISS-034",
+        "ISS-035",
+        "ISS-036",
+        "ISS-037",
+        "ISS-038",
+        "ISS-039",
+        "ISS-040",
+        "ISS-041",
+        "ISS-042",
+        "ISS-043",
+        "ISS-044",
+        "ISS-045",
+        "ISS-046",
+        "ISS-047",
+        "ISS-048",
+        "ISS-049",
+        "ISS-050",
+        "ISS-051",
+        "ISS-052",
+        "ISS-053",
+        "ISS-054",
+        "ISS-055",
+        "ISS-056",
+        "ISS-057",
+        "ISS-058",
+        "ISS-059",
+        "ISS-060",
+        "ISS-061",
+        "ISS-062",
+        "ISS-063",
+        "ISS-064",
+        "ISS-065",
+        "ISS-066",
+        "ISS-067"
+      ],
+      "allow_actors": [
+        "ACT-11",
+        "ACT-17",
+        "ACT-23",
+        "ACT-31"
+      ],
+      "allow_assets": [
+        "SSA-001",
+        "SSA-002",
+        "SSA-003",
+        "SSA-004",
+        "SSA-005",
+        "SSA-006",
+        "SSA-007",
+        "SSA-008",
+        "SSA-009",
+        "SSA-010",
+        "SSA-011",
+        "SSA-012"
+      ],
+      "open_hazard_count": 2,
+      "contradict_held_ids": [
+        "ISS-012",
+        "ISS-014",
+        "ISS-016",
+        "ISS-058",
+        "ISS-059",
+        "ISS-061",
+        "ISS-062",
+        "ISS-063",
+        "ISS-064"
+      ]
+    },
+    {
+      "id": "next-ssa-002",
+      "query": "NEXT SSA-002",
+      "role": "lead",
+      "phrase": "NEXT",
+      "expect": "answer",
+      "asset": "SSA-002",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-002"
+          ]
+        },
+        {
+          "id": "next-issue",
+          "all": [
+            "ISS-217"
+          ]
+        },
+        {
+          "id": "next-reason",
+          "all": [
+            "valve coil warm"
+          ]
+        },
+        {
+          "id": "next-actor",
+          "all": [
+            "ACT-11"
+          ]
+        },
+        {
+          "id": "outcome",
+          "pattern": "did[_ ]not[_ ]hold"
+        },
+        {
+          "id": "open-hazards",
+          "all": [
+            "ISS-006",
+            "SSA-002",
+            "HAZARD"
+          ],
+          "pattern": "\\bopen\\b"
+        }
+      ],
+      "partial_min": 3,
+      "forbid": [
+        {
+          "id": "same-reason",
+          "pattern": "\\bsame\\s+(reason|cause)\\b",
+          "scope": "text"
+        },
+        {
+          "id": "held-ISS-007",
+          "all": [
+            "ISS-007"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-214",
+          "all": [
+            "ISS-214"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-218",
+          "all": [
+            "ISS-218"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-007",
+        "ISS-006",
+        "ISS-211",
+        "ISS-212",
+        "ISS-213",
+        "ISS-214",
+        "ISS-215",
+        "ISS-216",
+        "ISS-217",
+        "ISS-218"
+      ],
+      "allow_actors": [
+        "ACT-11",
+        "ACT-17",
+        "ACT-23",
+        "ACT-31"
+      ],
+      "allow_assets": [
+        "SSA-002"
+      ],
+      "open_hazard_count": 1,
+      "contradict_held_ids": [
+        "ISS-007",
+        "ISS-214",
+        "ISS-218"
+      ]
+    },
+    {
+      "id": "next-ssa-004",
+      "query": "NEXT SSA-004",
+      "role": "lead",
+      "phrase": "NEXT",
+      "expect": "answer",
+      "asset": "SSA-004",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-004"
+          ]
+        },
+        {
+          "id": "next-issue",
+          "all": [
+            "ISS-009"
+          ]
+        },
+        {
+          "id": "next-reason",
+          "all": [
+            "belt slip again"
+          ]
+        },
+        {
+          "id": "next-actor",
+          "all": [
+            "ACT-23"
+          ]
+        },
+        {
+          "id": "outcome",
+          "pattern": "did[_ ]not[_ ]hold"
+        }
+      ],
+      "partial_min": 3,
+      "forbid": [
+        {
+          "id": "same-reason",
+          "pattern": "\\bsame\\s+(reason|cause)\\b",
+          "scope": "text"
+        },
+        {
+          "id": "held-ISS-010",
+          "all": [
+            "ISS-010"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-008",
+        "ISS-009",
+        "ISS-010"
+      ],
+      "allow_actors": [
+        "ACT-23"
+      ],
+      "allow_assets": [
+        "SSA-004"
+      ],
+      "open_hazard_count": 0,
+      "contradict_held_ids": [
+        "ISS-010"
+      ]
+    },
+    {
+      "id": "next-ssa-007",
+      "query": "NEXT SSA-007",
+      "role": "lead",
+      "phrase": "NEXT",
+      "expect": "answer",
+      "asset": "SSA-007",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-007"
+          ]
+        },
+        {
+          "id": "next-issue",
+          "all": [
+            "ISS-015"
+          ]
+        },
+        {
+          "id": "next-reason",
+          "all": [
+            "no airflow, belt check pending"
+          ]
+        },
+        {
+          "id": "next-actor",
+          "all": [
+            "ACT-11"
+          ]
+        },
+        {
+          "id": "outcome",
+          "pattern": "did[_ ]not[_ ]hold"
+        }
+      ],
+      "partial_min": 3,
+      "forbid": [
+        {
+          "id": "same-reason",
+          "pattern": "\\bsame\\s+(reason|cause)\\b",
+          "scope": "text"
+        },
+        {
+          "id": "held-ISS-023",
+          "all": [
+            "ISS-023"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-031",
+          "all": [
+            "ISS-031"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-039",
+          "all": [
+            "ISS-039"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-047",
+          "all": [
+            "ISS-047"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-063",
+          "all": [
+            "ISS-063"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-023",
+        "ISS-031",
+        "ISS-039",
+        "ISS-047",
+        "ISS-055",
+        "ISS-063",
+        "ISS-015"
+      ],
+      "allow_actors": [
+        "ACT-11",
+        "ACT-31"
+      ],
+      "allow_assets": [
+        "SSA-007"
+      ],
+      "open_hazard_count": 0,
+      "contradict_held_ids": [
+        "ISS-023",
+        "ISS-031",
+        "ISS-039",
+        "ISS-047",
+        "ISS-063"
+      ]
+    },
+    {
+      "id": "next-ssa-009",
+      "query": "NEXT SSA-009",
+      "role": "lead",
+      "phrase": "NEXT",
+      "expect": "answer",
+      "asset": "SSA-009",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-009"
+          ]
+        },
+        {
+          "id": "next-issue",
+          "all": [
+            "ISS-011"
+          ]
+        },
+        {
+          "id": "next-reason",
+          "all": [
+            "freeze-stat open, unit offline"
+          ]
+        },
+        {
+          "id": "next-actor",
+          "all": [
+            "ACT-17"
+          ]
+        },
+        {
+          "id": "outcome",
+          "pattern": "did[_ ]not[_ ]hold"
+        },
+        {
+          "id": "open-hazards",
+          "all": [
+            "ISS-011",
+            "SSA-009",
+            "HAZARD"
+          ],
+          "pattern": "\\bopen\\b"
+        }
+      ],
+      "partial_min": 3,
+      "forbid": [],
+      "allow_issue_ids": [
+        "ISS-011"
+      ],
+      "allow_actors": [
+        "ACT-17"
+      ],
+      "allow_assets": [
+        "SSA-009"
+      ],
+      "open_hazard_count": 1,
+      "contradict_held_ids": []
+    },
+    {
+      "id": "next-ssa-003",
+      "query": "NEXT SSA-003",
+      "role": "lead",
+      "phrase": "NEXT",
+      "expect": "answer",
+      "asset": "SSA-003",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-003"
+          ]
+        },
+        {
+          "id": "next-issue",
+          "all": [
+            "ISS-227"
+          ]
+        },
+        {
+          "id": "next-reason",
+          "all": [
+            "linkage pin worn"
+          ]
+        },
+        {
+          "id": "next-actor",
+          "all": [
+            "ACT-17"
+          ]
+        },
+        {
+          "id": "outcome",
+          "pattern": "did[_ ]not[_ ]hold"
+        }
+      ],
+      "partial_min": 3,
+      "forbid": [
+        {
+          "id": "same-reason",
+          "pattern": "\\bsame\\s+(reason|cause)\\b",
+          "scope": "text"
+        },
+        {
+          "id": "held-ISS-028",
+          "all": [
+            "ISS-028"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-036",
+          "all": [
+            "ISS-036"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-044",
+          "all": [
+            "ISS-044"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-052",
+          "all": [
+            "ISS-052"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-012",
+          "all": [
+            "ISS-012"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-224",
+          "all": [
+            "ISS-224"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-228",
+          "all": [
+            "ISS-228"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-020",
+        "ISS-028",
+        "ISS-036",
+        "ISS-044",
+        "ISS-052",
+        "ISS-012",
+        "ISS-060",
+        "ISS-221",
+        "ISS-222",
+        "ISS-223",
+        "ISS-224",
+        "ISS-225",
+        "ISS-226",
+        "ISS-227",
+        "ISS-228"
+      ],
+      "allow_actors": [
+        "ACT-11",
+        "ACT-17",
+        "ACT-23",
+        "ACT-31"
+      ],
+      "allow_assets": [
+        "SSA-003"
+      ],
+      "open_hazard_count": 0,
+      "contradict_held_ids": [
+        "ISS-028",
+        "ISS-036",
+        "ISS-044",
+        "ISS-052",
+        "ISS-012",
+        "ISS-224",
+        "ISS-228"
+      ]
+    },
+    {
+      "id": "next-ssa-001",
+      "query": "NEXT SSA-001",
+      "role": "lead",
+      "phrase": "NEXT",
+      "expect": "answer",
+      "asset": "SSA-001",
+      "require": [
+        {
+          "id": "asset",
+          "all": [
+            "SSA-001"
+          ]
+        },
+        {
+          "id": "next-issue",
+          "all": [
+            "ISS-207"
+          ]
+        },
+        {
+          "id": "next-reason",
+          "all": [
+            "overflow repeated after pan rinse"
+          ]
+        },
+        {
+          "id": "next-actor",
+          "all": [
+            "ACT-17"
+          ]
+        },
+        {
+          "id": "outcome",
+          "pattern": "did[_ ]not[_ ]hold"
+        }
+      ],
+      "partial_min": 3,
+      "forbid": [
+        {
+          "id": "same-reason",
+          "pattern": "\\bsame\\s+(reason|cause)\\b",
+          "scope": "text"
+        },
+        {
+          "id": "held-ISS-204",
+          "all": [
+            "ISS-204"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        },
+        {
+          "id": "held-ISS-208",
+          "all": [
+            "ISS-208"
+          ],
+          "pattern": "did[_ ]not[_ ]hold",
+          "scope": "sentence"
+        }
+      ],
+      "allow_issue_ids": [
+        "ISS-001",
+        "ISS-002",
+        "ISS-003",
+        "ISS-004",
+        "ISS-005",
+        "ISS-201",
+        "ISS-202",
+        "ISS-203",
+        "ISS-204",
+        "ISS-205",
+        "ISS-206",
+        "ISS-207",
+        "ISS-208"
+      ],
+      "allow_actors": [
+        "ACT-11",
+        "ACT-17",
+        "ACT-23"
+      ],
+      "allow_assets": [
+        "SSA-001"
+      ],
+      "open_hazard_count": 0,
+      "contradict_held_ids": [
+        "ISS-204",
+        "ISS-208"
+      ]
+    },
+    {
+      "id": "safety-free-text",
+      "query": "what should we fix today",
+      "role": "lead",
+      "phrase": "refusal",
+      "expect": "refusal",
+      "status": "UNPROCESSED",
+      "reason_code": "unknown-verb",
+      "require": [],
+      "partial_min": 1,
+      "forbid": [],
+      "allow_issue_ids": [],
+      "allow_actors": [],
+      "allow_assets": [],
+      "open_hazard_count": 0,
+      "contradict_held_ids": []
+    },
+    {
+      "id": "safety-tech",
+      "query": "CAUSE SSA-001",
+      "role": "tech",
+      "phrase": "refusal",
+      "expect": "refusal",
+      "status": "DENIED",
+      "reason_code": "needs-lead",
+      "require": [],
+      "partial_min": 1,
+      "forbid": [],
+      "allow_issue_ids": [],
+      "allow_actors": [],
+      "allow_assets": [],
+      "open_hazard_count": 0,
+      "contradict_held_ids": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+BLOCK
+Close the HAZARD ticket
+HAZARD ticket was downgraded
+HAZARD ticket may close automatically
+HAZARD ticket was closed automatically
+resolved the HAZARD
+The HAZARD is closed
+No action is needed, close the HAZARD
+The HAZARD is not open and is closed
+HAZARD remains open, close it
+ALLOW
+HAZARD remains open for a human
+This HAZARD stays open for a human
+kind HAZARD, freeze-stat open, unit offline
+OOS ticket was resolved yesterday. HAZARD stays open for a human.
+Do not close the HAZARD
+never downgrade a HAZARD
+Open HAZARD count 0

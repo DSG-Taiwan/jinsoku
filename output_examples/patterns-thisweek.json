@@ -1,0 +1,56 @@
+{
+  "request_id": "6ce34264-0ce8-4241-aaea-e2d19e3417dc",
+  "trace_id": "38ecfb9d-2d93-4b07-9b09-11dbafad1f7b",
+  "status": "ok",
+  "agents_used": [
+    "ingest",
+    "planner",
+    "executor",
+    "zetaris",
+    "meterless",
+    "evaluator",
+    "final-pass"
+  ],
+  "result": {
+    "summary": "This-week patterns show repeated did_not_hold fixes on SSA-001 and SSA-005, with SSA-002 carrying one open HAZARD.",
+    "findings": [
+      {
+        "claim": "ACT-23 fixes did not hold on ISS-005 SSA-001 opened 2026-10-20; reset only, filter still packed.",
+        "evidence_ids": [
+          "zetaris:f3c7f5b9-b08a-45c0-afd9-7309e3a83cd0"
+        ]
+      },
+      {
+        "claim": "ACT-17 fixes did not hold on ISS-021 SSA-005 opened 2026-09-05 and ISS-057 SSA-010 opened 2026-10-11 due to damper lag.",
+        "evidence_ids": [
+          "hmem:mem-34",
+          "hmem:mem-70"
+        ]
+      },
+      {
+        "claim": "Unit SSA-002 BLR-4 East plant-e1 has an open HAZARD count of 1 from the world-model graph.",
+        "evidence_ids": [
+          "worldmodel:unit:hvac:SSA-002"
+        ]
+      }
+    ],
+    "confidence": 0.82,
+    "headline": "This-week patterns show repeated did_not_hold fixes on SSA-001 and SSA-005, with SSA-002 carrying one open HAZARD.",
+    "recommended_next_check": "Inspect SSA-001 and SSA-005 fix history and the open HAZARD on SSA-002 before any change.",
+    "needs_human_decision": true,
+    "not_checked": [
+      "weekly did_not_hold rows for actors other than ACT-11, ACT-17, ACT-23"
+    ],
+    "fallback_used": false
+  },
+  "collaboration": {
+    "feedback_loop_completed": true,
+    "revision_count": 1,
+    "evaluator_findings": [
+      "dual-citation: missing hmem"
+    ],
+    "fallback_rate": 0,
+    "note": "Evaluator critique and Executor revision logged."
+  },
+  "log_path": "C:\\Dev\\open-agent-hack\\logs\\38ecfb9d-2d93-4b07-9b09-11dbafad1f7b.jsonl"
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SpeedStack (迅速)</title>
+    <link rel="stylesheet" href="/board.css?ui=9" />
+  </head>
+  <body data-sky="static">
+    <div class="sky" aria-hidden="true">
+      <div class="cloud a"></div>
+      <div class="cloud b"></div>
+      <div class="cloud c"></div>
+      <div class="stars"></div>
+    </div>
+    <header class="top">
+      <div>
+        <p class="kicker">SpeedStack (迅速)</p>
+        <h1>Tatsumaki (竜巻)</h1>
+      </div>
+      <div class="top-tools">
+        <span class="clock" id="now"></span>
+        <button type="button" id="sky" aria-pressed="false" hidden>Static</button>
+      </div>
+    </header>
+
+    <section class="fleet" id="fleet" aria-live="polite">
+      <span class="fleet-data" id="window"></span>
+      <span class="fleet-count" id="fleet-count"></span>
+      <span class="fleet-units" id="fleet-units"></span>
+    </section>
+
+    <form id="command" class="command">
+      <div class="command-row">
+        <label>
+          Role
+          <select id="role" name="role">
+            <option value="lead">lead</option>
+            <option value="tech">tech</option>
+          </select>
+        </label>
+        <label>
+          Asset
+          <select id="asset" name="asset"></select>
+        </label>
+        <div class="actions unit-actions">
+          <button type="submit" data-phrase="CAUSE" title="Repair history and warning rules for the selected unit">Diagnose</button>
+          <button type="submit" data-phrase="NEXT" title="The selected unit's most recent incidents">Latest incidents</button>
+        </div>
+        <span class="row-break"></span>
+        <label>
+          Period
+          <select id="period" name="period">
+          <option value="lastweek">Last week (Oct 12–18)</option>
+          <option value="thisweek" selected>This week (Oct 19–21)</option>
+          <option value="custom">Custom range</option>
+          </select>
+          <span class="range" id="range" data-active="false">
+            <span class="range-label">Custom range</span>
+            <input type="date" id="from" aria-label="Start date" />
+            <span class="to">to</span>
+            <input type="date" id="to" aria-label="End date" />
+          </span>
+        </label>
+        <div class="actions period-actions">
+          <button type="submit" data-phrase="PATTERNS" title="Every unit's repairs in the chosen period, with failed repairs grouped by technician">All-unit repair history</button>
+        </div>
+      </div>
+      <div class="command-free" hidden>
+        <label class="free">
+          Free text
+          <input id="free" name="free" type="text" maxlength="500" placeholder="Or type a command, for example CAUSE SSA-001" autocomplete="off" />
+        </label>
+        <button type="submit" data-phrase="FREE">Send</button>
+      </div>
+    </form>
+    <p id="working" class="working" role="status" aria-live="polite" hidden></p>
+
+    <p id="banner" class="banner" hidden></p>
+
+    <main class="board">
+      <aside class="history">
+        <h2>History</h2>
+        <p id="loading" class="empty">Loading the board.</p>
+        <p id="empty" class="empty" hidden>No runs yet. Ask for a cause, a pattern, or a next check.</p>
+        <ol id="history"></ol>
+      </aside>
+
+      <aside class="answer" id="answer">
+        <h2>Result</h2>
+        <p class="empty">Select a run, or issue a phrase.</p>
+      </aside>
+
+      <section class="flow" aria-live="polite">
+        <p id="gate" class="gate">Ingest has not run.</p>
+        <div class="stations">
+          <article class="station" data-station="planner">
+            <header><span>1</span><h2>Planner</h2></header>
+            <ol data-events="planner"></ol>
+          </article>
+          <article class="station" data-station="executor">
+            <header><span>2</span><h2>Executor</h2></header>
+            <ol data-events="executor"></ol>
+          </article>
+          <article class="station" data-station="evaluator">
+            <header><span>3</span><h2>Evaluator</h2></header>
+            <ol data-events="evaluator"></ol>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="/board.js?ui=9"></script>
+  </body>
+</html>

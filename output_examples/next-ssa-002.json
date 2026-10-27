@@ -1,0 +1,53 @@
+{
+  "request_id": "1c81adcd-b899-4105-93ed-7b3847054c64",
+  "trace_id": "5e50f444-b072-4b2f-940b-63acbd20b27b",
+  "status": "ok",
+  "agents_used": [
+    "ingest",
+    "planner",
+    "executor",
+    "zetaris",
+    "meterless",
+    "evaluator",
+    "final-pass"
+  ],
+  "result": {
+    "summary": "SSA-002 has one open HAZARD; prior ACT-23 fix did not hold due to high-limit trip.",
+    "findings": [
+      {
+        "claim": "SSA-002 is BLR-4 in East plant-e1 with one open HAZARD.",
+        "evidence_ids": [
+          "zetaris:3a02da1e-85a6-406c-bc68-71cf5e3b7137",
+          "worldmodel:unit:hvac:SSA-002"
+        ]
+      },
+      {
+        "claim": "ISS-006 HAZARD opened 2026-10-15 by ACT-23 remains open and the fix did not hold due to high-limit trip.",
+        "evidence_ids": [
+          "zetaris:c840d875-f4bd-4d1c-ac0d-ed8a80e04174",
+          "hmem:mem-19"
+        ]
+      },
+      {
+        "claim": "Coaching proposal: review ACT-23 high-limit trip remediation because the prior fix did not hold; the unit may be at fault.",
+        "evidence_ids": [
+          "zetaris:c840d875-f4bd-4d1c-ac0d-ed8a80e04174"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "headline": "SSA-002 has one open HAZARD; prior ACT-23 fix did not hold due to high-limit trip.",
+    "recommended_next_check": "Inspect SSA-002 high-limit circuit and ACT-23 repair history before further operation.",
+    "needs_human_decision": true,
+    "not_checked": [],
+    "fallback_used": false
+  },
+  "collaboration": {
+    "feedback_loop_completed": true,
+    "revision_count": 0,
+    "evaluator_findings": [],
+    "fallback_rate": 0,
+    "note": "Evaluator approved first draft."
+  },
+  "log_path": "C:\\Dev\\open-agent-hack\\logs\\5e50f444-b072-4b2f-940b-63acbd20b27b.jsonl"
+}

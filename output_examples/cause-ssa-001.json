@@ -1,0 +1,61 @@
+{
+  "request_id": "d5-clean-8fb43d16-162c-46d6-854c-b96bf8312ece",
+  "trace_id": "47fa6143-4901-42fc-9e82-a0b2ea3cf69a",
+  "status": "ok",
+  "agents_used": [
+    "ingest",
+    "planner",
+    "executor",
+    "zetaris",
+    "meterless",
+    "evaluator",
+    "final-pass"
+  ],
+  "result": {
+    "summary": "SSA-001 shows repeated out-of-service events with fixes that did not hold, including intake filter packing and filter-only swaps.",
+    "findings": [
+      {
+        "claim": "SSA-001 had an OOS event on 2026-09-02 with ACT-17 where the fix did not hold because the intake filter was packed with dust.",
+        "evidence_ids": [
+          "zetaris:214899d4-227f-42a7-aafa-6683901fc3d5"
+        ]
+      },
+      {
+        "claim": "SSA-001 had an OOS event on 2026-09-16 with ACT-11 where the fix did not hold for the same intake filter issue.",
+        "evidence_ids": [
+          "zetaris:214899d4-227f-42a7-aafa-6683901fc3d5"
+        ]
+      },
+      {
+        "claim": "SSA-001 had a MICROFIX on 2026-10-14 with ACT-11 where the fix did not hold because only a filter swap was performed.",
+        "evidence_ids": [
+          "hmem:mem-4"
+        ]
+      },
+      {
+        "claim": "SSA-001 is an RTU-12 unit located at North roof-n1.",
+        "evidence_ids": [
+          "worldmodel:unit:hvac:SSA-001"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "headline": "SSA-001 shows repeated out-of-service events with fixes that did not hold, including intake filter packing and filter-only swaps.",
+    "recommended_next_check": "Inspect the root cause of recurring intake filter packing on SSA-001 and evaluate whether the unit itself is at fault.",
+    "needs_human_decision": true,
+    "not_checked": [
+      "Anything not in the retrieved sources"
+    ],
+    "fallback_used": false
+  },
+  "collaboration": {
+    "feedback_loop_completed": true,
+    "revision_count": 1,
+    "evaluator_findings": [
+      "dual-citation: missing worldmodel"
+    ],
+    "fallback_rate": 0,
+    "note": "Evaluator critique and Executor revision logged."
+  },
+  "log_path": "C:\\Temp\\d5-clean-20261022\\logs\\47fa6143-4901-42fc-9e82-a0b2ea3cf69a.jsonl"
+}

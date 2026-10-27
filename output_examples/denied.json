@@ -1,0 +1,23 @@
+{
+  "request_id": "dca8c7ab-07bf-41b3-bbb8-42cac6f5f71b",
+  "trace_id": "a6d13664-3501-44bb-8379-da4e76af8f43",
+  "status": "DENIED",
+  "agents_used": [
+    "ingest"
+  ],
+  "result": {
+    "summary": "This command needs lead or higher. A tech cannot run it.",
+    "findings": [],
+    "confidence": 1,
+    "human_message": "This command needs lead or higher. A tech cannot run it.",
+    "reason_code": "needs-lead",
+    "fallback_used": false
+  },
+  "collaboration": {
+    "feedback_loop_completed": false,
+    "revision_count": 0,
+    "evaluator_findings": [],
+    "note": "Ingest only. No model or Zetaris call."
+  },
+  "log_path": "C:\\Dev\\open-agent-hack\\logs\\a6d13664-3501-44bb-8379-da4e76af8f43.jsonl"
+}

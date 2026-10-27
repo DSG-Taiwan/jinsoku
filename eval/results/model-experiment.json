@@ -1,0 +1,194 @@
+{
+  "nightshift": [
+    {
+      "mode": "meterless/fast",
+      "calls": [
+        {
+          "mode": "meterless/fast",
+          "http": "200",
+          "latency_ms": 609,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_3zmx3851",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/fast",
+          "http": "200",
+          "latency_ms": 420,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_mhei5nft",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/fast",
+          "http": "200",
+          "latency_ms": 416,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_2szpdhpd",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/fast",
+          "http": "200",
+          "latency_ms": 403,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_nyirrb7z",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/fast",
+          "http": "200",
+          "latency_ms": 5817,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_lk7mf1my",
+          "provider": "nvidia",
+          "parsed": true
+        }
+      ]
+    },
+    {
+      "mode": "meterless/deep",
+      "calls": [
+        {
+          "mode": "meterless/deep",
+          "http": "200",
+          "latency_ms": 683,
+          "routed_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "receipt_id": "rcpt_req_abpcr4dx",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/deep",
+          "http": "200",
+          "latency_ms": 9079,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_d5r6xbda",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/deep",
+          "http": "200",
+          "latency_ms": 7665,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_1vp2cadi",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/deep",
+          "http": "200",
+          "latency_ms": 8546,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_4jx4dr1e",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/deep",
+          "http": "200",
+          "latency_ms": 5293,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_p24phlkh",
+          "provider": "nvidia",
+          "parsed": true
+        }
+      ]
+    },
+    {
+      "mode": "meterless/auto",
+      "calls": [
+        {
+          "mode": "meterless/auto",
+          "http": "200",
+          "latency_ms": 5139,
+          "routed_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "receipt_id": "rcpt_req_awpf7afc",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/auto",
+          "http": "200",
+          "latency_ms": 13966,
+          "routed_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "receipt_id": "rcpt_req_w2us68c7",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/auto",
+          "http": "200",
+          "latency_ms": 5659,
+          "routed_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "receipt_id": "rcpt_req_qy3jxyka",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/auto",
+          "http": "200",
+          "latency_ms": 4397,
+          "routed_model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "receipt_id": "rcpt_req_u6q36l5f",
+          "provider": "nvidia",
+          "parsed": true
+        },
+        {
+          "mode": "meterless/auto",
+          "http": "200",
+          "latency_ms": 4295,
+          "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "receipt_id": "rcpt_req_pop9zhop",
+          "provider": "nvidia",
+          "parsed": true
+        }
+      ]
+    }
+  ],
+  "direct": [
+    {
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "served": true,
+      "calls": 30,
+      "failures": 6,
+      "availability": 25,
+      "median_ms": 7023,
+      "p95_ms": 17408,
+      "slowest_ms": 22943,
+      "failure_traces": [
+        "ea4eae7e-fb1d-4061-922b-847a3eff1830 CAUSE SSA-001 unresolved",
+        "ef709cf4-fede-4a2d-8cdf-c13441044b7a CAUSE SSA-001 timeout",
+        "2df59fee-7b1a-46ec-9188-cb809b3dc0b1 CAUSE SSA-004 unresolved",
+        "e9cae776-ee3d-4cf8-aabd-1f6ec9cca4bf PATTERNS thisweek unresolved",
+        "0b881807-f25f-4895-abc2-bf2aa3412fa3 PATTERNS thisweek unresolved",
+        "310caf96-3567-4029-a4f2-cd133e0306b6 PATTERNS lastweek unresolved"
+      ]
+    },
+    {
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "served": true,
+      "calls": 30,
+      "failures": 8,
+      "availability": 29,
+      "median_ms": 8553,
+      "p95_ms": 17016,
+      "slowest_ms": 23064,
+      "failure_traces": [
+        "6777eda6-6d3b-47f1-8be8-25a390ab881f CAUSE SSA-002 timeout",
+        "65d0b52e-6401-4cde-aa3e-9bb45a9a0dca PATTERNS lastweek timeout",
+        "7b4eeada-e49e-46f2-8834-40ef3ec1f89a PATTERNS lastweek timeout",
+        "b2d32e46-713d-4aa6-b5ce-844a373eed0f CAUSE SSA-002 unresolved",
+        "e99af4dd-2f0d-4038-933f-7384caab1995 CAUSE SSA-001 timeout",
+        "5632590a-39c9-4675-8326-89e9d2285fdd CAUSE SSA-009 timeout",
+        "5d82b3ff-c5a7-479e-bcaf-5d90c7d07ffd PATTERNS thisweek timeout",
+        "4a4cd75a-3b7c-44ff-9456-6e78dcd90851 PATTERNS lastweek timeout"
+      ]
+    }
+  ]
+}

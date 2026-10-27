@@ -1,0 +1,672 @@
+[
+  {
+    "issue_id": "ISS-001",
+    "asset_id": "SSA-001",
+    "kind": "OOS",
+    "opened_at": "2026-09-02",
+    "closed_at": "2026-09-03",
+    "reason": "intake filter packed with dust",
+    "actor_key": "ACT-17",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-002",
+    "asset_id": "SSA-001",
+    "kind": "OOS",
+    "opened_at": "2026-09-16",
+    "closed_at": "2026-09-17",
+    "reason": "same filter bypass, coil iced",
+    "actor_key": "ACT-11",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-003",
+    "asset_id": "SSA-001",
+    "kind": "OOS",
+    "opened_at": "2026-09-30",
+    "closed_at": "2026-10-01",
+    "reason": "coil iced after filter change",
+    "actor_key": "ACT-17",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-004",
+    "asset_id": "SSA-001",
+    "kind": "MICROFIX",
+    "opened_at": "2026-10-14",
+    "closed_at": "2026-10-14",
+    "reason": "filter swap only",
+    "actor_key": "ACT-11",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-005",
+    "asset_id": "SSA-001",
+    "kind": "OOS",
+    "opened_at": "2026-10-20",
+    "closed_at": "2026-10-20",
+    "reason": "reset only, filter still packed",
+    "actor_key": "ACT-23",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-006",
+    "asset_id": "SSA-002",
+    "kind": "HAZARD",
+    "opened_at": "2026-10-15",
+    "closed_at": null,
+    "reason": "high-limit trip, still open",
+    "actor_key": "ACT-23",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-007",
+    "asset_id": "SSA-002",
+    "kind": "OOS",
+    "opened_at": "2026-09-08",
+    "closed_at": "2026-09-09",
+    "reason": "ignition lockout",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-008",
+    "asset_id": "SSA-004",
+    "kind": "OOS",
+    "opened_at": "2026-09-08",
+    "closed_at": "2026-09-09",
+    "reason": "belt slip",
+    "actor_key": "ACT-23",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-009",
+    "asset_id": "SSA-004",
+    "kind": "OOS",
+    "opened_at": "2026-09-22",
+    "closed_at": "2026-09-23",
+    "reason": "belt slip again",
+    "actor_key": "ACT-23",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-010",
+    "asset_id": "SSA-004",
+    "kind": "MICROFIX",
+    "opened_at": "2026-10-06",
+    "closed_at": "2026-10-07",
+    "reason": "belt tension tweak",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-011",
+    "asset_id": "SSA-009",
+    "kind": "HAZARD",
+    "opened_at": "2026-10-18",
+    "closed_at": null,
+    "reason": "freeze-stat open, unit offline",
+    "actor_key": "ACT-17",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-012",
+    "asset_id": "SSA-003",
+    "kind": "OOS",
+    "opened_at": "2026-10-12",
+    "closed_at": "2026-10-13",
+    "reason": "damper stuck",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-013",
+    "asset_id": "SSA-005",
+    "kind": "MICROFIX",
+    "opened_at": "2026-10-19",
+    "closed_at": "2026-10-19",
+    "reason": "sensor drift trim",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-014",
+    "asset_id": "SSA-006",
+    "kind": "OOS",
+    "opened_at": "2026-10-13",
+    "closed_at": "2026-10-14",
+    "reason": "condensate pan full",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-015",
+    "asset_id": "SSA-007",
+    "kind": "OOS",
+    "opened_at": "2026-10-21",
+    "closed_at": null,
+    "reason": "no airflow, belt check pending",
+    "actor_key": "ACT-11",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-016",
+    "asset_id": "SSA-010",
+    "kind": "MICROFIX",
+    "opened_at": "2026-10-16",
+    "closed_at": "2026-10-16",
+    "reason": "thermostat offset",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-017",
+    "asset_id": "SSA-008",
+    "kind": "OOS",
+    "opened_at": "2026-09-11",
+    "closed_at": "2026-09-11",
+    "reason": "fan wheel loose",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-018",
+    "asset_id": "SSA-011",
+    "kind": "OOS",
+    "opened_at": "2026-10-02",
+    "closed_at": "2026-10-03",
+    "reason": "drain line slow",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-019",
+    "asset_id": "SSA-012",
+    "kind": "MICROFIX",
+    "opened_at": "2026-10-09",
+    "closed_at": "2026-10-09",
+    "reason": "contactor buzz",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-020",
+    "asset_id": "SSA-003",
+    "kind": "MICROFIX",
+    "opened_at": "2026-09-04",
+    "closed_at": "2026-09-04",
+    "reason": "blower noise",
+    "actor_key": "ACT-11",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-021",
+    "asset_id": "SSA-005",
+    "kind": "OOS",
+    "opened_at": "2026-09-05",
+    "closed_at": "2026-09-05",
+    "reason": "damper lag",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-022",
+    "asset_id": "SSA-006",
+    "kind": "OOS",
+    "opened_at": "2026-09-06",
+    "closed_at": "2026-09-06",
+    "reason": "sensor drift",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-023",
+    "asset_id": "SSA-007",
+    "kind": "OOS",
+    "opened_at": "2026-09-07",
+    "closed_at": "2026-09-07",
+    "reason": "drain line slow",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-024",
+    "asset_id": "SSA-008",
+    "kind": "OOS",
+    "opened_at": "2026-09-08",
+    "closed_at": "2026-09-08",
+    "reason": "thermostat offset",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-025",
+    "asset_id": "SSA-010",
+    "kind": "OOS",
+    "opened_at": "2026-09-09",
+    "closed_at": "2026-09-09",
+    "reason": "fan wheel loose",
+    "actor_key": "ACT-17",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-026",
+    "asset_id": "SSA-011",
+    "kind": "OOS",
+    "opened_at": "2026-09-10",
+    "closed_at": "2026-09-10",
+    "reason": "blower noise",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-027",
+    "asset_id": "SSA-012",
+    "kind": "OOS",
+    "opened_at": "2026-09-11",
+    "closed_at": "2026-09-11",
+    "reason": "damper lag",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-028",
+    "asset_id": "SSA-003",
+    "kind": "OOS",
+    "opened_at": "2026-09-12",
+    "closed_at": "2026-09-12",
+    "reason": "sensor drift",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-029",
+    "asset_id": "SSA-005",
+    "kind": "OOS",
+    "opened_at": "2026-09-13",
+    "closed_at": "2026-09-13",
+    "reason": "drain line slow",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-030",
+    "asset_id": "SSA-006",
+    "kind": "OOS",
+    "opened_at": "2026-09-14",
+    "closed_at": "2026-09-14",
+    "reason": "thermostat offset",
+    "actor_key": "ACT-23",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-031",
+    "asset_id": "SSA-007",
+    "kind": "MICROFIX",
+    "opened_at": "2026-09-15",
+    "closed_at": "2026-09-15",
+    "reason": "fan wheel loose",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-032",
+    "asset_id": "SSA-008",
+    "kind": "OOS",
+    "opened_at": "2026-09-16",
+    "closed_at": "2026-09-16",
+    "reason": "blower noise",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-033",
+    "asset_id": "SSA-010",
+    "kind": "OOS",
+    "opened_at": "2026-09-17",
+    "closed_at": "2026-09-17",
+    "reason": "damper lag",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-034",
+    "asset_id": "SSA-011",
+    "kind": "OOS",
+    "opened_at": "2026-09-18",
+    "closed_at": "2026-09-18",
+    "reason": "sensor drift",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-035",
+    "asset_id": "SSA-012",
+    "kind": "OOS",
+    "opened_at": "2026-09-19",
+    "closed_at": "2026-09-19",
+    "reason": "drain line slow",
+    "actor_key": "ACT-31",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-036",
+    "asset_id": "SSA-003",
+    "kind": "OOS",
+    "opened_at": "2026-09-20",
+    "closed_at": "2026-09-20",
+    "reason": "thermostat offset",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-037",
+    "asset_id": "SSA-005",
+    "kind": "OOS",
+    "opened_at": "2026-09-21",
+    "closed_at": "2026-09-21",
+    "reason": "fan wheel loose",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-038",
+    "asset_id": "SSA-006",
+    "kind": "OOS",
+    "opened_at": "2026-09-22",
+    "closed_at": "2026-09-22",
+    "reason": "blower noise",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-039",
+    "asset_id": "SSA-007",
+    "kind": "OOS",
+    "opened_at": "2026-09-23",
+    "closed_at": "2026-09-23",
+    "reason": "damper lag",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-040",
+    "asset_id": "SSA-008",
+    "kind": "OOS",
+    "opened_at": "2026-09-24",
+    "closed_at": "2026-09-24",
+    "reason": "sensor drift",
+    "actor_key": "ACT-11",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-041",
+    "asset_id": "SSA-010",
+    "kind": "OOS",
+    "opened_at": "2026-09-25",
+    "closed_at": "2026-09-25",
+    "reason": "drain line slow",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-042",
+    "asset_id": "SSA-011",
+    "kind": "MICROFIX",
+    "opened_at": "2026-09-26",
+    "closed_at": "2026-09-26",
+    "reason": "thermostat offset",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-043",
+    "asset_id": "SSA-012",
+    "kind": "OOS",
+    "opened_at": "2026-09-27",
+    "closed_at": "2026-09-27",
+    "reason": "fan wheel loose",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-044",
+    "asset_id": "SSA-003",
+    "kind": "OOS",
+    "opened_at": "2026-09-28",
+    "closed_at": "2026-09-28",
+    "reason": "blower noise",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-045",
+    "asset_id": "SSA-005",
+    "kind": "OOS",
+    "opened_at": "2026-09-29",
+    "closed_at": "2026-09-29",
+    "reason": "damper lag",
+    "actor_key": "ACT-17",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-046",
+    "asset_id": "SSA-006",
+    "kind": "OOS",
+    "opened_at": "2026-09-30",
+    "closed_at": "2026-09-30",
+    "reason": "sensor drift",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-047",
+    "asset_id": "SSA-007",
+    "kind": "OOS",
+    "opened_at": "2026-10-01",
+    "closed_at": "2026-10-01",
+    "reason": "drain line slow",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-048",
+    "asset_id": "SSA-008",
+    "kind": "OOS",
+    "opened_at": "2026-10-02",
+    "closed_at": "2026-10-02",
+    "reason": "thermostat offset",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-049",
+    "asset_id": "SSA-010",
+    "kind": "OOS",
+    "opened_at": "2026-10-03",
+    "closed_at": "2026-10-03",
+    "reason": "fan wheel loose",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-050",
+    "asset_id": "SSA-011",
+    "kind": "OOS",
+    "opened_at": "2026-10-04",
+    "closed_at": "2026-10-04",
+    "reason": "blower noise",
+    "actor_key": "ACT-23",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-051",
+    "asset_id": "SSA-012",
+    "kind": "OOS",
+    "opened_at": "2026-10-05",
+    "closed_at": "2026-10-05",
+    "reason": "damper lag",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-052",
+    "asset_id": "SSA-003",
+    "kind": "OOS",
+    "opened_at": "2026-10-06",
+    "closed_at": "2026-10-06",
+    "reason": "sensor drift",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-053",
+    "asset_id": "SSA-005",
+    "kind": "MICROFIX",
+    "opened_at": "2026-10-07",
+    "closed_at": "2026-10-07",
+    "reason": "drain line slow",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-054",
+    "asset_id": "SSA-006",
+    "kind": "OOS",
+    "opened_at": "2026-10-08",
+    "closed_at": "2026-10-08",
+    "reason": "thermostat offset",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-055",
+    "asset_id": "SSA-007",
+    "kind": "OOS",
+    "opened_at": "2026-10-09",
+    "closed_at": "2026-10-09",
+    "reason": "fan wheel loose",
+    "actor_key": "ACT-31",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-056",
+    "asset_id": "SSA-008",
+    "kind": "OOS",
+    "opened_at": "2026-10-10",
+    "closed_at": "2026-10-10",
+    "reason": "blower noise",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-057",
+    "asset_id": "SSA-010",
+    "kind": "OOS",
+    "opened_at": "2026-10-11",
+    "closed_at": "2026-10-11",
+    "reason": "damper lag",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-058",
+    "asset_id": "SSA-011",
+    "kind": "OOS",
+    "opened_at": "2026-10-12",
+    "closed_at": "2026-10-12",
+    "reason": "sensor drift",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-059",
+    "asset_id": "SSA-012",
+    "kind": "OOS",
+    "opened_at": "2026-10-13",
+    "closed_at": "2026-10-13",
+    "reason": "drain line slow",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-060",
+    "asset_id": "SSA-003",
+    "kind": "OOS",
+    "opened_at": "2026-10-14",
+    "closed_at": "2026-10-14",
+    "reason": "thermostat offset",
+    "actor_key": "ACT-11",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-061",
+    "asset_id": "SSA-005",
+    "kind": "OOS",
+    "opened_at": "2026-10-15",
+    "closed_at": "2026-10-15",
+    "reason": "fan wheel loose",
+    "actor_key": "ACT-17",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-062",
+    "asset_id": "SSA-006",
+    "kind": "OOS",
+    "opened_at": "2026-10-16",
+    "closed_at": "2026-10-16",
+    "reason": "blower noise",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-063",
+    "asset_id": "SSA-007",
+    "kind": "OOS",
+    "opened_at": "2026-10-17",
+    "closed_at": "2026-10-17",
+    "reason": "damper lag",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-064",
+    "asset_id": "SSA-008",
+    "kind": "MICROFIX",
+    "opened_at": "2026-10-18",
+    "closed_at": "2026-10-18",
+    "reason": "sensor drift",
+    "actor_key": "ACT-11",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-065",
+    "asset_id": "SSA-010",
+    "kind": "OOS",
+    "opened_at": "2026-10-19",
+    "closed_at": "2026-10-19",
+    "reason": "drain line slow",
+    "actor_key": "ACT-17",
+    "fix_outcome": "did_not_hold"
+  },
+  {
+    "issue_id": "ISS-066",
+    "asset_id": "SSA-011",
+    "kind": "OOS",
+    "opened_at": "2026-10-20",
+    "closed_at": "2026-10-20",
+    "reason": "thermostat offset",
+    "actor_key": "ACT-23",
+    "fix_outcome": "held"
+  },
+  {
+    "issue_id": "ISS-067",
+    "asset_id": "SSA-012",
+    "kind": "OOS",
+    "opened_at": "2026-10-21",
+    "closed_at": null,
+    "reason": "fan wheel loose",
+    "actor_key": "ACT-31",
+    "fix_outcome": "held"
+  }
+]

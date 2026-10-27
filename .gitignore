@@ -1,0 +1,22 @@
+# internal notes, never public
+_internal/
+Audit/
+PIPELINE.md
+LINKEDIN-POST*.md
+post2-card.*
+# secrets / runtime
+.axel-*/
+.env
+.env.*
+!.env.example
+logs/
+node_modules/
+.venv/
+__pycache__/
+vendor/
+data/hmem/
+data/world/
+data/idempotency.json
+data/idempotency.lock/
+.notebook/
+.meterless/

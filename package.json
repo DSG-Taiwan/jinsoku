@@ -1,0 +1,21 @@
+{
+  "name": "speedstack-gated-agent",
+  "version": "0.1.0",
+  "description": "SpeedStack gated agent layer (Open Agent Hackathon 2026, Wildcard Tinkerer). D1: live ingest + Nemotron + Zetaris + H-MEM smoke path.",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "setup": "npx --yes degit meterless/meterless/engines/hmem/reference vendor/hmem && npm install --prefix vendor/hmem --no-audit --no-fund && npx --yes degit meterless/meterless/engines/world-model vendor/world-model && npx --yes degit meterless/meterless/engines/markovian vendor/markovian",
+    "notebook": "tsx notebook.ts",
+    "start": "tsx src/server.ts",
+    "run": "tsx src/cli.ts",
+    "smoke": "tsx scripts/smoke.ts",
+    "health": "tsx scripts/health.ts",
+    "d2": "tsx scripts/smoke.ts",
+    "test": "tsx --test --test-concurrency=1 test/*.test.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
+  }
+}

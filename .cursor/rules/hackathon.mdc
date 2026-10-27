@@ -1,0 +1,27 @@
+---
+description: Project rules for the SpeedStack gated agent layer (Open Agent Hackathon 2026)
+alwaysApply: true
+---
+# What this project is
+A governed LLM layer for SpeedStack: remove the LLM first, add guardrails, then re-introduce the model only behind specific invocation phrases (CAUSE <asset>, PATTERNS <thisweek|lastweek>, NEXT <asset>). Anything else is "unprocessed": logged, never sent to a model. Full design: ARCHITECTURE.md.
+
+# Stack
+TypeScript on Node.js. Zetaris (read-only SQL, local), Meterless H-MEM + World Model (local), NVIDIA Nemotron via an OpenAI-compatible client. REST: POST /run, GET /health. Docker for packaging.
+
+# Hard rules
+- Agents propose; humans decide. No write path to GitHub Issues, Redis or any production store from the agent layer.
+- Agent phrases need role lead or higher (admin included). A tech is denied with needs-lead, logged, and no model is called. Reuse the engine's roles and fail-closed auth.
+- Never downgrade or close a HAZARD item. Every claim must cite a source that was actually retrieved.
+- Synthetic data only: no real student, staff or customer data anywhere.
+- Deny by default: unknown verb, SQL statement type or role is rejected and logged. Only SELECT is allowed against Zetaris.
+- Secrets live in .env only. Never print, log, commit or hard-code keys. Read config from MODEL_BASE_URL, MODEL_API_KEY, NEMOTRON_MODEL, ZETARIS_*.
+- Do not modify the existing SpeedStack engine; call its public surface. Declare it as pre-existing.
+- Never fake Zetaris or Meterless calls. SAMPLE_MODE loads sample inputs only, never prewritten outputs.
+- Validate every agent output against a schema; one repair retry, then a structured error.
+
+# Practical notes
+- Nemotron is a reasoning model: use generous max_tokens (200+) or content comes back empty, and retry once on HTTP 5xx.
+- One JSONL log line per agent event, written at the moment of each call.
+- Write tests with the code. Run them before finishing a task.
+
+- Zetaris REST: X-Org-ID is the NUMERIC org id (ZETARIS_ORG_ID=1), X-Request-ID and queryId must be UUIDs. SQL: Lightning SQL, one statement per call, no trailing semicolon, qualified names <source>.<table>.

@@ -1,0 +1,1058 @@
+{
+  "selection_after": {
+    "route": "nightshift",
+    "model": "meterless/deep"
+  },
+  "modes": [
+    {
+      "mode": "meterless/fast",
+      "requests": 30,
+      "cache_hits_excluded": 0,
+      "reliability": {
+        "denominator": 30,
+        "failures": 6,
+        "available": 30
+      },
+      "verified_uncached": {
+        "requests": 23,
+        "failures": 1,
+        "median_ms": 8031,
+        "p95_ms": 16713,
+        "slowest_ms": 23038,
+        "routed_models": {
+          "nvidia/nemotron-3.5-lightning-30b-a3b": 9,
+          "nvidia/nemotron-3-ultra-550b-a55b": 19
+        }
+      },
+      "cache_unknown": {
+        "requests": 7,
+        "failures": 5,
+        "note": "no receipt stating the cache status; counted in reliability, left out of latency and routing"
+      },
+      "failure_traces": [
+        "175fc7dc-4765-4aa5-b760-66d9d37f8fb0 CAUSE SSA-002 timeout",
+        "41fc9cfc-1f29-4cf6-8381-8ffa7b2e694a CAUSE SSA-001 timeout",
+        "d8735fb2-c080-4bc6-95ec-71b5076349ca CAUSE SSA-004 timeout",
+        "2d579cb6-ebbb-4ab2-83fc-4d1ac509781a CAUSE SSA-009 timeout",
+        "e67b32b1-47c7-421f-9d70-70b26611c96b PATTERNS lastweek timeout",
+        "a39d0945-f46a-4f2c-a1e8-95febaf04d1f PATTERNS thisweek timeout"
+      ],
+      "rows": [
+        {
+          "query": "CAUSE SSA-002",
+          "status": "ok",
+          "fallback": true,
+          "reason": "timeout",
+          "failed": true,
+          "elapsed_ms": 13037,
+          "trace_id": "175fc7dc-4765-4aa5-b760-66d9d37f8fb0",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_4bbrgsh7"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-001",
+          "status": "ok",
+          "fallback": true,
+          "reason": "timeout",
+          "failed": true,
+          "elapsed_ms": 11026,
+          "trace_id": "41fc9cfc-1f29-4cf6-8381-8ffa7b2e694a",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "CAUSE SSA-004",
+          "status": "ok",
+          "fallback": true,
+          "reason": "timeout",
+          "failed": true,
+          "elapsed_ms": 11029,
+          "trace_id": "d8735fb2-c080-4bc6-95ec-71b5076349ca",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "CAUSE SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 11394,
+          "trace_id": "0c7432d1-b611-41c4-88cf-8ccde2afd413",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_il3gtww9",
+            "rcpt_req_az4zjehj"
+          ]
+        },
+        {
+          "query": "PATTERNS thisweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 6693,
+          "trace_id": "de893011-6026-4f1f-a654-3cdb95917830",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_nzb2tuid",
+            "rcpt_req_qsebf7vo"
+          ]
+        },
+        {
+          "query": "PATTERNS lastweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 16713,
+          "trace_id": "dd9032b9-0b0b-43ac-afef-a745912a13f3",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_4e3xan10",
+            "rcpt_req_es71c04c"
+          ]
+        },
+        {
+          "query": "NEXT SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8031,
+          "trace_id": "04f07089-b43d-474f-a724-80fc0bcdc28b",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "NEXT SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 6366,
+          "trace_id": "2b7a2af9-6cfc-43d1-bd9f-527e326c5c67",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_dudt4q7d",
+            "rcpt_req_vc1xz266"
+          ]
+        },
+        {
+          "query": "NEXT SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 6948,
+          "trace_id": "cf4d0fbd-ff55-4e5e-9187-4575c10428b7",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_semy196e",
+            "rcpt_req_qaert6cy"
+          ]
+        },
+        {
+          "query": "NEXT SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8031,
+          "trace_id": "26eb45bf-7d53-4614-bc25-3b106405d8fd",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_qhtku5bq"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 7513,
+          "trace_id": "432bb6ce-a378-4ca7-ad79-0754ba7e37f7",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_uxd6k962",
+            "rcpt_req_5q70qkng"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13034,
+          "trace_id": "697482f1-45d5-4068-8aa4-3448fbffbc5d",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_os1us1ev"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13027,
+          "trace_id": "6b7e97f4-1032-4a5b-9088-0e0169d5e3af",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_9k6fnhkw"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-009",
+          "status": "ok",
+          "fallback": true,
+          "reason": "timeout",
+          "failed": true,
+          "elapsed_ms": 11030,
+          "trace_id": "2d579cb6-ebbb-4ab2-83fc-4d1ac509781a",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "PATTERNS thisweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 23038,
+          "trace_id": "e1fa7e5e-3282-44bd-a275-5898ee150063",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_vxgfpdwl"
+          ]
+        },
+        {
+          "query": "PATTERNS lastweek",
+          "status": "ok",
+          "fallback": true,
+          "reason": "timeout",
+          "failed": true,
+          "elapsed_ms": 16765,
+          "trace_id": "e67b32b1-47c7-421f-9d70-70b26611c96b",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "NEXT SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8026,
+          "trace_id": "e395fbc4-faa0-49c3-894d-e8d77e9a6885",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_ygxr7slx"
+          ]
+        },
+        {
+          "query": "NEXT SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 5827,
+          "trace_id": "9453fdeb-0fc5-4b3a-b143-76995d779ba8",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_8crmpua3",
+            "rcpt_req_5gzwoqez"
+          ]
+        },
+        {
+          "query": "NEXT SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 5017,
+          "trace_id": "a9a2df7e-f01d-4328-b40d-3fc28ce5ebd5",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b",
+            "nvidia/nemotron-3.5-lightning-30b-a3b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_bkeqort9",
+            "rcpt_req_7ajeiiau"
+          ]
+        },
+        {
+          "query": "NEXT SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 7772,
+          "trace_id": "90950588-88b0-4cf2-a4cd-f3a4dd66970d",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_mz2ac4d8"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 10945,
+          "trace_id": "561dbed9-b45c-48ea-b3a3-8e31a22c9d19",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_c7xry3mv",
+            "rcpt_req_c5z3jisn"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13032,
+          "trace_id": "7a6fecaf-8bc3-4c84-b3aa-0972a8b4a845",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_308e3sd0"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13032,
+          "trace_id": "60c7ed6d-623e-4f72-b36f-e9f06081d411",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_vecn7azw"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13025,
+          "trace_id": "53d17eff-bc44-4ce1-81b2-2b9fe708a472",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_vbhkn10c"
+          ]
+        },
+        {
+          "query": "PATTERNS thisweek",
+          "status": "ok",
+          "fallback": true,
+          "reason": "timeout",
+          "failed": true,
+          "elapsed_ms": 16778,
+          "trace_id": "a39d0945-f46a-4f2c-a1e8-95febaf04d1f",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "PATTERNS lastweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 23030,
+          "trace_id": "26965de1-4155-4860-804a-2753f7e19c3a",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_cd5ow5vs"
+          ]
+        },
+        {
+          "query": "NEXT SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 5581,
+          "trace_id": "5199f2c0-6aed-40b6-99a0-8f0daabff565",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_yees2875",
+            "rcpt_req_zczkd4nj"
+          ]
+        },
+        {
+          "query": "NEXT SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 7989,
+          "trace_id": "9e552050-417b-41aa-bf77-fde34a198dff",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_m4yo5o7v"
+          ]
+        },
+        {
+          "query": "NEXT SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 4861,
+          "trace_id": "404260bd-7dca-43ab-a85a-0efaba805b0c",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_8bjypoc5",
+            "rcpt_req_o42o7p98"
+          ]
+        },
+        {
+          "query": "NEXT SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8027,
+          "trace_id": "39bf30b1-5d02-491a-8235-b50423c7d458",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        }
+      ]
+    },
+    {
+      "mode": "meterless/deep",
+      "requests": 30,
+      "cache_hits_excluded": 0,
+      "reliability": {
+        "denominator": 30,
+        "failures": 2,
+        "available": 30
+      },
+      "verified_uncached": {
+        "requests": 22,
+        "failures": 1,
+        "median_ms": 13022,
+        "p95_ms": 23030,
+        "slowest_ms": 23036,
+        "routed_models": {
+          "nvidia/nemotron-3-ultra-550b-a55b": 19,
+          "nvidia/nemotron-3.5-lightning-30b-a3b": 3
+        }
+      },
+      "cache_unknown": {
+        "requests": 8,
+        "failures": 1,
+        "note": "no receipt stating the cache status; counted in reliability, left out of latency and routing"
+      },
+      "failure_traces": [
+        "e17524ec-fe60-40c0-bb97-1bdc09c77e23 CAUSE SSA-002 timeout",
+        "04a080b1-491f-420c-a9bd-a720ace20f49 CAUSE SSA-004 timeout"
+      ],
+      "rows": [
+        {
+          "query": "CAUSE SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 11380,
+          "trace_id": "6d79e854-0417-4ec4-9baa-45324022b2c5",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_mafo1hmy",
+            "rcpt_req_4o0i02gv"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13029,
+          "trace_id": "9eab7498-046a-4b4d-b561-e4895a525b72",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_qg0w8r8z"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13022,
+          "trace_id": "0999931f-a19c-45bf-9e2e-99a4a3d8e636",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_0pkkbdgk"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8521,
+          "trace_id": "e58de440-3059-48d2-b0f3-856cd14d13ae",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_3r65k6m6",
+            "rcpt_req_p9iwfcpz"
+          ]
+        },
+        {
+          "query": "PATTERNS thisweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 23030,
+          "trace_id": "816fc365-d2f8-4de6-8eb8-62d0b65b84cb",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_upq81v5x"
+          ]
+        },
+        {
+          "query": "PATTERNS lastweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 23022,
+          "trace_id": "259ea4c3-7614-4789-b242-08e7548a1c50",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_ioc2on9o"
+          ]
+        },
+        {
+          "query": "NEXT SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8020,
+          "trace_id": "7845f70e-d796-41e2-9fba-065b8a6f72fa",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "NEXT SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8019,
+          "trace_id": "f832ef4f-d393-4e33-a8d5-0d5a7dcae930",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "NEXT SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 6646,
+          "trace_id": "0d443afc-2fb5-4f1e-b937-8d188de7d2ce",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_5y7c7nhr",
+            "rcpt_req_fyu3k3qq"
+          ]
+        },
+        {
+          "query": "NEXT SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8020,
+          "trace_id": "e0e65b2e-c8c1-4185-8b17-dbfb2ee8acc2",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "CAUSE SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 7600,
+          "trace_id": "076f4005-c6a1-4688-a800-ad3b4b1343c3",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_hkhd6k4q",
+            "rcpt_req_1fkdxykd"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13024,
+          "trace_id": "fa5021d0-9a04-4b22-8c15-c2d470cd065c",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_a8pry78s"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13021,
+          "trace_id": "04893c9f-3292-45b3-a0c2-b3a67c243227",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_wf8c5og7"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13031,
+          "trace_id": "cb319780-7e30-4396-b8d2-326c40dc1147",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_70k8souj"
+          ]
+        },
+        {
+          "query": "PATTERNS thisweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 23033,
+          "trace_id": "3633efd0-f732-4d8f-ba55-64ff9f77e951",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_we0jaq5g"
+          ]
+        },
+        {
+          "query": "PATTERNS lastweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 23036,
+          "trace_id": "132cf4e7-7e4f-4c87-9175-e2b47a41e659",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_ppfivgel"
+          ]
+        },
+        {
+          "query": "NEXT SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8035,
+          "trace_id": "6ac37e86-a83f-4bda-8ff6-32b4606ada4e",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_hifi8zm8"
+          ]
+        },
+        {
+          "query": "NEXT SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 7670,
+          "trace_id": "d43496d6-1b4f-4f0d-89f4-64dfd05a4e8f",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_rdwlpfsq"
+          ]
+        },
+        {
+          "query": "NEXT SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8022,
+          "trace_id": "22b90664-3b8e-472f-9a7e-0c26577741d9",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "NEXT SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8025,
+          "trace_id": "39d907da-9537-44f7-a28c-24e08c6ac792",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "CAUSE SSA-002",
+          "status": "ok",
+          "fallback": true,
+          "reason": "timeout",
+          "failed": true,
+          "elapsed_ms": 13035,
+          "trace_id": "e17524ec-fe60-40c0-bb97-1bdc09c77e23",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_h39v7z96"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 13038,
+          "trace_id": "3ecfab22-3b0e-44eb-8085-b6c285c59e6d",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_kercvfmp"
+          ]
+        },
+        {
+          "query": "CAUSE SSA-004",
+          "status": "ok",
+          "fallback": true,
+          "reason": "timeout",
+          "failed": true,
+          "elapsed_ms": 11035,
+          "trace_id": "04a080b1-491f-420c-a9bd-a720ace20f49",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "CAUSE SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 7794,
+          "trace_id": "3f3bfdbd-b682-4346-8a33-2cba45ee1d31",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_576anp43",
+            "rcpt_req_hs3nywgx"
+          ]
+        },
+        {
+          "query": "PATTERNS thisweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 23027,
+          "trace_id": "72a0f527-5ad3-45e9-a579-7dc0914a75a1",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_dm67pxpm"
+          ]
+        },
+        {
+          "query": "PATTERNS lastweek",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 23027,
+          "trace_id": "ad9fca69-f2c2-4856-ae75-bc1bd6574858",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_lv6deul0"
+          ]
+        },
+        {
+          "query": "NEXT SSA-002",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8028,
+          "trace_id": "64c6715d-7183-42ab-b74b-b10f9bcb9d77",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "NEXT SSA-004",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8033,
+          "trace_id": "4df67ce2-8cec-465d-9388-2c21b63b5e7b",
+          "cache_hit": false,
+          "cache_known": false,
+          "routed_models": [],
+          "receipt_ids": []
+        },
+        {
+          "query": "NEXT SSA-009",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 7084,
+          "trace_id": "4360331b-2235-4b2e-97de-579a6f1f6f91",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3-ultra-550b-a55b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_03nkvhvz"
+          ]
+        },
+        {
+          "query": "NEXT SSA-001",
+          "status": "ok",
+          "fallback": false,
+          "reason": null,
+          "failed": false,
+          "elapsed_ms": 8038,
+          "trace_id": "ef5786a2-245b-4239-9ced-2875edb088f7",
+          "cache_hit": false,
+          "cache_known": true,
+          "routed_models": [
+            "nvidia/nemotron-3.5-lightning-30b-a3b"
+          ],
+          "receipt_ids": [
+            "rcpt_req_03vkpo72"
+          ]
+        }
+      ]
+    }
+  ],
+  "summary_version": 2
+}

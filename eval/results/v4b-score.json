@@ -1,0 +1,312 @@
+{
+  "runs": 12,
+  "correct": 5,
+  "partial": 2,
+  "wrong": 4,
+  "miss": 1,
+  "unresolved": 1,
+  "errors": 0,
+  "fallback": 2,
+  "strict": "5/12",
+  "resolved_only": "5/11",
+  "by_phrase": [
+    {
+      "phrase": "CAUSE",
+      "runs": 12,
+      "correct": 5,
+      "partial": 2,
+      "wrong": 4,
+      "miss": 1,
+      "unresolved": 1,
+      "errors": 0,
+      "fallback": 2,
+      "strict": "5/12",
+      "resolved_only": "5/11"
+    },
+    {
+      "phrase": "PATTERNS",
+      "runs": 0,
+      "correct": 0,
+      "partial": 0,
+      "wrong": 0,
+      "miss": 0,
+      "unresolved": 0,
+      "errors": 0,
+      "fallback": 0,
+      "strict": "0/0",
+      "resolved_only": "0/0"
+    },
+    {
+      "phrase": "NEXT",
+      "runs": 0,
+      "correct": 0,
+      "partial": 0,
+      "wrong": 0,
+      "miss": 0,
+      "unresolved": 0,
+      "errors": 0,
+      "fallback": 0,
+      "strict": "0/0",
+      "resolved_only": "0/0"
+    },
+    {
+      "phrase": "refusal",
+      "runs": 0,
+      "correct": 0,
+      "partial": 0,
+      "wrong": 0,
+      "miss": 0,
+      "unresolved": 0,
+      "errors": 0,
+      "fallback": 0,
+      "strict": "0/0",
+      "resolved_only": "0/0"
+    }
+  ],
+  "cause_unresolved_rate": "1/12",
+  "cause_unresolved": [
+    {
+      "case_id": "cause-ssa-002",
+      "request_id": "v4b-cause-ssa-002-2-746cde20-8254-45de-916f-c645722c1061",
+      "trace_id": "b56338da-349f-494f-93c1-42b45ad77545",
+      "human_message": "evaluator-rejected",
+      "evaluator_findings": [
+        "evaluator-rejected"
+      ],
+      "evaluator_critiques": [],
+      "evaluator_exhaust": null
+    }
+  ],
+  "unsupported_runs": 0,
+  "hazard_downgrade_runs": 0,
+  "invented_hazard_runs": 0,
+  "hazard_missed_runs": 0,
+  "name_leak_runs": 0,
+  "idempotency_hits": 0,
+  "grades": [
+    {
+      "case_id": "cause-ssa-004",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset",
+        "iss-008",
+        "iss-009",
+        "actor",
+        "repeat-tokens"
+      ],
+      "failed": [],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "correct"
+    },
+    {
+      "case_id": "cause-ssa-004",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset",
+        "iss-008",
+        "iss-009",
+        "actor",
+        "repeat-tokens"
+      ],
+      "failed": [],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "correct"
+    },
+    {
+      "case_id": "cause-ssa-004",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset",
+        "iss-008",
+        "actor",
+        "repeat-tokens"
+      ],
+      "failed": [
+        "iss-009"
+      ],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "partial"
+    },
+    {
+      "case_id": "cause-ssa-001",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset",
+        "two-reasons"
+      ],
+      "failed": [
+        "two-actors",
+        "outcome"
+      ],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "partial"
+    },
+    {
+      "case_id": "cause-ssa-001",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset"
+      ],
+      "failed": [
+        "two-reasons",
+        "two-actors",
+        "outcome"
+      ],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "wrong"
+    },
+    {
+      "case_id": "cause-ssa-001",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset"
+      ],
+      "failed": [
+        "two-reasons",
+        "two-actors",
+        "outcome"
+      ],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "wrong"
+    },
+    {
+      "case_id": "cause-ssa-009",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset",
+        "issue",
+        "kind",
+        "open",
+        "actor",
+        "reason"
+      ],
+      "failed": [],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "correct"
+    },
+    {
+      "case_id": "cause-ssa-009",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset",
+        "issue",
+        "kind",
+        "open",
+        "actor",
+        "reason"
+      ],
+      "failed": [],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "correct"
+    },
+    {
+      "case_id": "cause-ssa-009",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset",
+        "issue",
+        "kind",
+        "open",
+        "actor",
+        "reason"
+      ],
+      "failed": [],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "correct"
+    },
+    {
+      "case_id": "cause-ssa-002",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset",
+        "iss-006"
+      ],
+      "failed": [],
+      "forbids": [
+        "held-ISS-007"
+      ],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "wrong"
+    },
+    {
+      "case_id": "cause-ssa-002",
+      "phrase": "CAUSE",
+      "passed": [
+        "asset",
+        "iss-006"
+      ],
+      "failed": [],
+      "forbids": [
+        "held-ISS-007"
+      ],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "wrong"
+    },
+    {
+      "case_id": "cause-ssa-002",
+      "phrase": "CAUSE",
+      "passed": [],
+      "failed": [],
+      "forbids": [],
+      "unsupported": [],
+      "name_leaks": [],
+      "hazard_downgrade": false,
+      "invented_hazard": false,
+      "hazard_missed": false,
+      "grade": "miss"
+    }
+  ]
+}

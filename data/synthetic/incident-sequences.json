@@ -1,0 +1,32 @@
+{
+  "SSA-001": [
+    { "issue_id": "ISS-201", "opened_at": "2026-10-22", "kind": "OOS", "actor_key": "ACT-17", "fix_outcome": "did_not_hold", "note": "supply fan belt glazed" },
+    { "issue_id": "ISS-202", "opened_at": "2026-10-23", "kind": "MICROFIX", "actor_key": "ACT-11", "fix_outcome": "did_not_hold", "note": "belt dressing only" },
+    { "issue_id": "ISS-203", "opened_at": "2026-10-24", "kind": "OOS", "actor_key": "ACT-23", "fix_outcome": "did_not_hold", "note": "belt still glazed after dressing" },
+    { "issue_id": "ISS-204", "opened_at": "2026-10-25", "kind": "OOS", "actor_key": "ACT-17", "fix_outcome": "held", "note": "belt replaced and tension set" },
+    { "issue_id": "ISS-205", "opened_at": "2026-10-26", "kind": "MICROFIX", "actor_key": "ACT-11", "fix_outcome": "did_not_hold", "note": "condensate pan slime" },
+    { "issue_id": "ISS-206", "opened_at": "2026-10-27", "kind": "OOS", "actor_key": "ACT-23", "fix_outcome": "did_not_hold", "note": "pan overflow into supply" },
+    { "issue_id": "ISS-207", "opened_at": "2026-10-28", "kind": "OOS", "actor_key": "ACT-17", "fix_outcome": "did_not_hold", "note": "overflow repeated after pan rinse" },
+    { "issue_id": "ISS-208", "opened_at": "2026-10-29", "kind": "MICROFIX", "actor_key": "ACT-23", "fix_outcome": "held", "note": "pan hose flushed" }
+  ],
+  "SSA-002": [
+    { "issue_id": "ISS-211", "opened_at": "2026-10-22", "kind": "OOS", "actor_key": "ACT-23", "fix_outcome": "did_not_hold", "note": "pilot flame short" },
+    { "issue_id": "ISS-212", "opened_at": "2026-10-23", "kind": "MICROFIX", "actor_key": "ACT-11", "fix_outcome": "did_not_hold", "note": "pilot gap tweak" },
+    { "issue_id": "ISS-213", "opened_at": "2026-10-24", "kind": "OOS", "actor_key": "ACT-17", "fix_outcome": "did_not_hold", "note": "pilot flame short again" },
+    { "issue_id": "ISS-214", "opened_at": "2026-10-25", "kind": "OOS", "actor_key": "ACT-23", "fix_outcome": "held", "note": "pilot orifice reseated" },
+    { "issue_id": "ISS-215", "opened_at": "2026-10-26", "kind": "MICROFIX", "actor_key": "ACT-31", "fix_outcome": "did_not_hold", "note": "gas valve chatter" },
+    { "issue_id": "ISS-216", "opened_at": "2026-10-27", "kind": "OOS", "actor_key": "ACT-17", "fix_outcome": "did_not_hold", "note": "valve chatter after tap" },
+    { "issue_id": "ISS-217", "opened_at": "2026-10-28", "kind": "OOS", "actor_key": "ACT-11", "fix_outcome": "did_not_hold", "note": "valve coil warm" },
+    { "issue_id": "ISS-218", "opened_at": "2026-10-29", "kind": "MICROFIX", "actor_key": "ACT-23", "fix_outcome": "held", "note": "flame sensor wiped" }
+  ],
+  "SSA-003": [
+    { "issue_id": "ISS-221", "opened_at": "2026-10-22", "kind": "OOS", "actor_key": "ACT-31", "fix_outcome": "did_not_hold", "note": "mixed air damper drift" },
+    { "issue_id": "ISS-222", "opened_at": "2026-10-23", "kind": "MICROFIX", "actor_key": "ACT-11", "fix_outcome": "did_not_hold", "note": "damper stop nudge" },
+    { "issue_id": "ISS-223", "opened_at": "2026-10-24", "kind": "OOS", "actor_key": "ACT-17", "fix_outcome": "did_not_hold", "note": "damper drift after nudge" },
+    { "issue_id": "ISS-224", "opened_at": "2026-10-25", "kind": "OOS", "actor_key": "ACT-31", "fix_outcome": "held", "note": "damper actuator swapped" },
+    { "issue_id": "ISS-225", "opened_at": "2026-10-26", "kind": "MICROFIX", "actor_key": "ACT-23", "fix_outcome": "did_not_hold", "note": "economizer minimum stuck" },
+    { "issue_id": "ISS-226", "opened_at": "2026-10-27", "kind": "OOS", "actor_key": "ACT-11", "fix_outcome": "did_not_hold", "note": "minimum stuck after reset" },
+    { "issue_id": "ISS-227", "opened_at": "2026-10-28", "kind": "OOS", "actor_key": "ACT-17", "fix_outcome": "did_not_hold", "note": "linkage pin worn" },
+    { "issue_id": "ISS-228", "opened_at": "2026-10-29", "kind": "MICROFIX", "actor_key": "ACT-31", "fix_outcome": "held", "note": "economizer linkage seized" }
+  ]
+}

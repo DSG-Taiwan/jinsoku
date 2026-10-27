@@ -1,0 +1,16 @@
+node_modules
+.git
+.env
+.env.*
+!.env.example
+logs
+data/hmem
+data/world
+data/idempotency.json
+data/idempotency.lock
+vendor
+_internal
+Audit
+handoffs
+*.md
+!README.md

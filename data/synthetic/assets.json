@@ -1,0 +1,74 @@
+[
+  {
+    "asset_id": "SSA-001",
+    "model": "RTU-12",
+    "location": "roof-n1",
+    "zone": "North"
+  },
+  {
+    "asset_id": "SSA-002",
+    "model": "BLR-4",
+    "location": "plant-e1",
+    "zone": "East"
+  },
+  {
+    "asset_id": "SSA-003",
+    "model": "AHU-9",
+    "location": "wing-s1",
+    "zone": "South"
+  },
+  {
+    "asset_id": "SSA-004",
+    "model": "FCU-2",
+    "location": "room-w1",
+    "zone": "West"
+  },
+  {
+    "asset_id": "SSA-005",
+    "model": "RTU-8",
+    "location": "roof-n2",
+    "zone": "North"
+  },
+  {
+    "asset_id": "SSA-006",
+    "model": "AHU-3",
+    "location": "wing-e1",
+    "zone": "East"
+  },
+  {
+    "asset_id": "SSA-007",
+    "model": "BLR-2",
+    "location": "plant-s1",
+    "zone": "South"
+  },
+  {
+    "asset_id": "SSA-008",
+    "model": "FCU-6",
+    "location": "room-w2",
+    "zone": "West"
+  },
+  {
+    "asset_id": "SSA-009",
+    "model": "RTU-15",
+    "location": "roof-e1",
+    "zone": "East"
+  },
+  {
+    "asset_id": "SSA-010",
+    "model": "AHU-1",
+    "location": "wing-n1",
+    "zone": "North"
+  },
+  {
+    "asset_id": "SSA-011",
+    "model": "FCU-4",
+    "location": "room-s2",
+    "zone": "South"
+  },
+  {
+    "asset_id": "SSA-012",
+    "model": "BLR-1",
+    "location": "plant-w1",
+    "zone": "West"
+  }
+]

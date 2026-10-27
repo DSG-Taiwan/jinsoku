@@ -1,0 +1,12 @@
+# keep secrets and internal notes out of Cursor indexing and AI context
+.env
+.env.*
+!.env.example
+_internal/
+PIPELINE.md
+LINKEDIN-POST*.md
+handoffs/
+logs/
+.notebook/
+vendor/
+node_modules/

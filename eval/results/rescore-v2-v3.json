@@ -1,0 +1,40 @@
+{
+  "v2": {
+    "rescored_strict": "39/42",
+    "saved_strict": "38/42",
+    "rescored_counts": {
+      "correct": 39,
+      "partial": 1,
+      "wrong": 1,
+      "miss": 1
+    },
+    "model_authored_correct": "18/19",
+    "code_assembled_correct": "15/16",
+    "invented_hazard_runs": 0,
+    "hazard_missed_runs": 0,
+    "grades_that_differ_from_saved": [
+      {
+        "i": 21,
+        "was": "wrong",
+        "now": "correct",
+        "case_id": "next-ssa-004",
+        "run_index": 0
+      }
+    ]
+  },
+  "v3": {
+    "rescored_strict": "35/42",
+    "saved_strict": "35/42",
+    "rescored_counts": {
+      "correct": 35,
+      "partial": 2,
+      "wrong": 5,
+      "miss": 0
+    },
+    "model_authored_correct": "24/31",
+    "code_assembled_correct": "5/5",
+    "invented_hazard_runs": 0,
+    "hazard_missed_runs": 0,
+    "grades_that_differ_from_saved": []
+  }
+}

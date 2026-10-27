@@ -1,0 +1,5 @@
+{"query":"CAUSE SSA-002","request_id":"fb-0-b58743f0-d7e7-462b-8c87-bdc2ba10e71c","trace_id":"c65810e9-23d5-4b3c-b8c8-dac68b9dc72f","status":"ok","fallback_used":false,"reason":"none","note":"Evaluator approved first draft."}
+{"query":"CAUSE SSA-002","request_id":"fb-1-6186b815-d317-4286-8df3-762e640437ab","trace_id":"bf624739-7d56-4d9f-bdc3-07eeb13693aa","status":"ok","fallback_used":false,"reason":"none","note":"Evaluator approved first draft."}
+{"query":"CAUSE SSA-002","request_id":"fb-2-fcce56ac-a73f-4fd8-8248-7da2588b0a8e","trace_id":"b273a503-e97b-49c7-a7c4-18fe2532dfbf","status":"ok","fallback_used":false,"reason":"none","note":"Evaluator approved first draft."}
+{"query":"CAUSE SSA-002","request_id":"fb-3-ea724508-1c68-4a70-9791-129e9a7a2414","trace_id":"65da37a1-f00a-460a-ad28-ce225cc075f0","status":"ok","fallback_used":true,"reason":"model-call","note":"Assembled from records after a model-call failure."}
+{"query":"CAUSE SSA-001","request_id":"fb-4-5256f7af-b393-4cec-bd09-a6a12fbfb1fd","trace_id":"56a2c7a8-faa8-4238-8436-bbd6259cf83c","status":"ok","fallback_used":true,"reason":"rejected","note":"Assembled from records after the draft was rejected."}

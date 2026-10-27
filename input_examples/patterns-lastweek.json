@@ -1,0 +1,8 @@
+{
+  "request_id": "d2-patterns-lastweek",
+  "user_query": "PATTERNS lastweek",
+  "context": {
+    "track": "Wildcard [Tinkerer]",
+    "role": "lead"
+  }
+}
